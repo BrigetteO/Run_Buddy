@@ -5,6 +5,12 @@ body {
   font-size: 13px;
   line-height: 18px;
   margin: 33px;
+  background: url(https://s3-us-west-2.amazonaws.com/s.cdpn.io/45544/background-svg.svg) no-repeat center center fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  height: 100%;
 }
 
 p, ol, ul, td {
@@ -21,15 +27,15 @@ pre {
 }
 
 a {
-  color: #000;
+  color: #c2d6d6;
 
   &:visited {
-    color: #666;
+    color: #c2d6d6;
   }
 
   &:hover {
-    color: #fff;
-    background-color: #000;
+    color: #c2d6d6;
+    background-color: #476b6b
   }
 }
 

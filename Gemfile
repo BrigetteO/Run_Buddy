@@ -29,7 +29,7 @@ gem 'jbuilder', '~> 2.5'
 gem 'devise'
 gem 'simple_form'
 gem 'country_select'
-gem 'pry'
+gem "simple_calendar", "~> 2.0"
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
