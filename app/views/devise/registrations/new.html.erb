@@ -1,0 +1,30 @@
+<h2>Sign up</h2>
+
+<%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+  <%= f.error_notification %>
+
+
+  <div class="form-inputs">
+    <%= f.input :first_name, label: false, required: true, autofocus: true %>
+    <%= f.input :last_name, label: false, required: true, autofocus: true %>
+    <%= f.input :user_name, label: false, required: true, autofocus: true %>
+    <%= f.input :email, label: false, required: true, autofocus: true %>
+    <%= f.input :password, label: false, required: true, placeholder: ("Password (#{@minimum_password_length} char min)" if @minimum_password_length) %>
+    <%= f.input :password_confirmation, label: false, required: true %>
+    <%= f.input :age, label: false, required: true, autofocus: true %>
+    <%= f.input :gender, label: false, required: true, autofocus: true %>
+    <%= f.input :city, label: false, required: true, autofocus: true %>
+    <%= f.input :state, label: false, required: true, autofocus: true %>
+    <%= f.input :zipcode, label: false, required: true, autofocus: true %>
+    <%= f.input :buddy_pref, as: :radio_buttons, label: "Do you want to be matched with potential run buddies?", required: true, autofocus: true %>
+    <%= f.input :pace, label: "What is your average pace?", collection: ["sub 6:30", "6:30-7:30", "7:30-8:30", "8:30-9:30", "9:30-10:30", "10:30 plus"], selected: "sub 6:30",required: true, autofocus: true %>
+    <%= f.input :availability, label: "When are you available for runs?", collection: ["Anytime", "Morning", "Afternoon", "Evening"], selected: "Anytime", required: true, autofocus: true %>
+    <%= f.input :run_pref, label: "Where do you like to run?", collection: ["Anywhere", "Beach", "Trail", "Road"], selected: "Anywhere", required: true, autofocus: true %>
+  </div>
+
+  <div class="form-actions">
+    <%= f.button :submit, "Sign up" %>
+  </div>
+<% end %>
+
+<%= render "devise/shared/links" %>

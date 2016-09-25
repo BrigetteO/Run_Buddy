@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  date: 2016-09-24
+  time: 2016-09-24 13:01:13
+  day: MyString
+  predictions_in_ft: 1
+  predictions_in_cm: 1
+  highlow: MyString
+
+two:
+  date: 2016-09-24
+  time: 2016-09-24 13:01:13
+  day: MyString
+  predictions_in_ft: 1
+  predictions_in_cm: 1
+  highlow: MyString
