@@ -11,7 +11,7 @@
       <span class="italic"><%= run.comments.count %> comments</span>
       <span class="italic"><%= link_to('Comment', new_run_comment_path(run) ) %></span> |
       <span class="italic"><%= run.kudos.count %> kudos</span>
-      <span class="italic"><%= link_to('Kudos', new_run_kudo_path(run) ) %></span>
+      <span class="italic"><%= link_to('Kudos', run_kudos_path(run), method: :post ) %></span>
     </div>
     <% end %>
   </div>

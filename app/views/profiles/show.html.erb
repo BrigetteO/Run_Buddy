@@ -1,28 +1,97 @@
-<h1>Hi!</h1>
-<div class="myBackground">
-<table>
-  <thead>
-    <tr>
-      <th>Date</th>
-      <th>Title</th>
-      <th>Location</th>
-      <th>Miles</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
+<p id="notice"><%= notice %></p>
 
-  <tbody>
-    <% @user.runs.each do |run| %>
-      <tr>
-        <td><%= run.convert_date %></td>
-        <td><%= run.title %></td>
-        <td><%= run.location %></td>
-        <td><%= run.miles %></td>
-        <td><%= link_to 'Show', run %></td>
-        <td><%= link_to 'Edit', edit_run_path(run) %></td>
-        <td><%= link_to 'Destroy', run, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
+<div class="left-align">
+  <h1>Activities</h1>
+
+  <div class="container">
+    <% if @user.runs.empty? %>
+        <p>You haven't logged any runs yet!</p>
+      <% else %>
+    <table>
+      <thead>
+        <tr>
+          <th>Date</th>
+          <th>Title</th>
+          <th>Location</th>
+          <th>Miles</th>
+        </tr>
+      </thead>
+
+      <tbody>
+        <% @user.runs.each do |run| %>
+          <tr>
+            <td><%= run.convert_date %></td>
+            <td><%= run.title %></td>
+            <td><%= run.location %></td>
+            <td><%= run.miles %></td>
+            <td><%= link_to 'Show', run %> | <%= link_to 'Edit', edit_run_path(run) %> | <%= link_to 'Destroy', run, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
     <% end %>
-  </tbody>
-</table>
+  </div>
+
+  <div class="tab-body">
+    <div class="tab-container">
+    <h1>Buddies</h1>
+      <ul class="tabs">
+        <li class="tab-link current" data-tab="tab-1">My Profile</li>
+        <li class="tab-link" data-tab="tab-2">Suggested Running Buddies</li>
+        <li class="tab-link" data-tab="tab-3">My Messages</li>
+        <li class="tab-link" data-tab="tab-4">Check the Tides</li>
+      </ul>
+
+      <div id="tab-1" class="tab-content current">
+        <span class="inline italic"> <%= @user.user_name %></span> |
+        <span class="inline italic"> <%= @user.city %></span> |
+        <span class="inline italic"> <%= @user.gender %></span> |
+        <span class="inline italic"> <%= @user.age %> years old</span>
+        <p>Available in the <%= @user.availability %> for <%= @user.run_pref %> runs!</p>
+      </div>
+
+
+      <div id="tab-2" class="tab-content">
+        <% if @user.find_buddies.empty? %>
+          <p>You don't have any buddies yet!</p>
+        <% else %>
+          <% @user.find_buddies.each do |buddy| %>
+            <span class="inline italic"> <%= buddy.user_name %></span> |
+            <span class="inline italic"> <%= buddy.city %></span> |
+            <span class="inline italic"> <%= buddy.pace %>:00 min/mile</span> |
+            <span class="inline italic"> <%= link_to('Send Message', new_message_path) %></span><br>
+          <% end %>
+        <% end %>
+      </div>
+
+      <div id="tab-3" class="tab-content">
+        <% if @user.received_messages.empty? %>
+          <p>You haven't received any messages yet!</p>
+        <% else %>
+          <% @user.received_messages.each do |message| %>
+            <span class="inline italic"> <%= message.content %></span> |
+            <span class="inline italic"> <%= message.sender.user_name %></span> |
+
+            <span class="inline italic"> <%= link_to('Send Message', new_message_path) %></span><br>
+
+            <a href="/messages?recipient_id=<%= message.sender.id %>"><i class="fa fa-envelope" aria-hidden="true"></i></a><br>
+          <% end %>
+        <% end %>
+      </div>
+
+      <div id="tab-5" class="tab-content">
+        <% if @user.run_pref == "beach" %>
+         <%= render 'tides' %>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="right-align">
+  <h1>Upcoming Events</h1>
+
+  <%= month_calendar do |date| %>
+    <%= date.strftime("%d") %>
+  <% end %>
 </div>

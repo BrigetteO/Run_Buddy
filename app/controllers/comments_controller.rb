@@ -13,10 +13,12 @@ class CommentsController < ApplicationController
 
   def create
     @comment = Comment.new(comment_params)
+    @comment.user_id = current_user.id
+    @comment.run_id = params[:run_id]
 
     respond_to do |format|
       if @comment.save
-        format.html { redirect_to @comment, notice: 'Comment created!' }
+        format.html { redirect_to runs_path }
         format.json { render :show, status: :created, location: @comment }
       else
         format.html { render :new }
@@ -51,6 +53,6 @@ class CommentsController < ApplicationController
     end
 
     def comment_params
-      params.require(:comment).permit(:user_id, :run_id, :content)
+      params.require(:comment).permit(:content, :run_id)
     end
 end

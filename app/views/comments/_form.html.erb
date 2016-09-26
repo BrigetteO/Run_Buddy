@@ -1,4 +1,4 @@
-<%= simple_form_for @comment, url: runs_path do |f| %>
+<%= simple_form_for (@comment), url: run_comments_path, method: :post, action: :create do |f| %>
   <%= f.error_notification %>
 
   <div class="form-inputs">

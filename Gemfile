@@ -30,6 +30,7 @@ gem 'devise'
 gem 'simple_form'
 gem 'country_select'
 gem "simple_calendar", "~> 2.0"
+gem 'pry-rails'
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
