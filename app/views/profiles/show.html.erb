@@ -59,7 +59,7 @@
             <span class="inline italic"> <%= buddy.user_name %></span> |
             <span class="inline italic"> <%= buddy.city %></span> |
             <span class="inline italic"> <%= buddy.pace %>:00 min/mile</span> |
-            <span class="inline italic"> <%= link_to('Send Message', new_message_path) %></span><br>
+            <span class="inline italic"> <%= link_to('Send Message', user_new_message_path(buddy.id)) %></span><br>
           <% end %>
         <% end %>
       </div>
@@ -72,7 +72,7 @@
             <span class="inline italic"> <%= message.content %></span> |
             <span class="inline italic"> <%= message.sender.user_name %></span> |
 
-            <span class="inline italic"> <%= link_to('Send Message', new_message_path) %></span><br>
+            <span class="inline italic"> <%= link_to('Send Message', user_new_message_path(buddy.id)) %></span><br>
 
             <a href="/messages?recipient_id=<%= message.sender.id %>"><i class="fa fa-envelope" aria-hidden="true"></i></a><br>
           <% end %>

@@ -1,6 +1,6 @@
 class Users::RegistrationsController < Devise::RegistrationsController
-  skip_before_filter :authenticate_user!
-# before_action :configure_sign_up_params, only: [:create]
+  skip_before_action :authenticate_user!
+  before_action :configure_permitted_parameters, only: [:create]
 # before_action :configure_account_update_params, only: [:update]
 
   # GET /resource/sign_up
@@ -9,10 +9,8 @@ class Users::RegistrationsController < Devise::RegistrationsController
   # end
 
   # POST /resource
-  def create
-    @user = User.create(sign_up_params)
-    redirect_to profile_path(@user)
-  end
+  # def create
+  # end
 
   # GET /resource/edit
   # def edit
@@ -38,21 +36,21 @@ class Users::RegistrationsController < Devise::RegistrationsController
   #   super
   # end
 
-  private
+  protected
 
   # If you have extra params to permit, append them to the sanitizer.
-  def sign_up_params
-    params.require(:user).permit(:email, :password, :first_name, :last_name, :user_name, :age, :gender, :city, :state, :zipcode, :pace, :availability, :buddy_pref, :run_pref)
+  def configure_permitted_parameters
+    devise_parameter_sanitizer.permit(:sign_up, keys: [:email, :password, :first_name, :last_name, :user_name, :age, :gender, :city, :state, :zipcode, :pace, :availability, :buddy_pref, :run_pref])
   end
 
   # If you have extra params to permit, append them to the sanitizer.
   # def configure_account_update_params
-  #   devise_parameter_sanitizer.permit(:account_update, keys: [:email, :password, :first_name, :last_name, :age, :gender, :city, :state, :zipcode, :pace, :availability, :buddy_pref, :run_pref])
+    # devise_parameter_sanitizer.permit(:account_update, keys: [:email, :password, :first_name, :last_name, :age, :gender, :city, :state, :zipcode, :pace, :availability, :buddy_pref, :run_pref])
   # end
 
   # The path used after sign up.
   def after_sign_up_path_for(resource)
-    profile_path(resource)
+    profile_path resource
   end
 
   # The path used after sign up for inactive accounts.
