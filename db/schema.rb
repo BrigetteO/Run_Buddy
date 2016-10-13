@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160925011655) do
+ActiveRecord::Schema.define(version: 20161013024422) do
 
   create_table "comments", force: :cascade do |t|
     t.string   "content"
@@ -18,6 +18,13 @@ ActiveRecord::Schema.define(version: 20160925011655) do
     t.integer  "run_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "conversations", force: :cascade do |t|
+    t.integer  "sender_id"
+    t.integer  "recipient_id"
+    t.datetime "created_at",   null: false
+    t.datetime "updated_at",   null: false
   end
 
   create_table "kudos", force: :cascade do |t|
@@ -28,11 +35,14 @@ ActiveRecord::Schema.define(version: 20160925011655) do
   end
 
   create_table "messages", force: :cascade do |t|
-    t.string   "content"
+    t.text     "content"
+    t.integer  "conversation_id"
     t.integer  "user_id"
-    t.integer  "recipient_id"
-    t.datetime "created_at",   null: false
-    t.datetime "updated_at",   null: false
+    t.boolean  "read",            default: false
+    t.datetime "created_at",                      null: false
+    t.datetime "updated_at",                      null: false
+    t.index ["conversation_id"], name: "index_messages_on_conversation_id"
+    t.index ["user_id"], name: "index_messages_on_user_id"
   end
 
   create_table "runs", force: :cascade do |t|
@@ -57,6 +67,16 @@ ActiveRecord::Schema.define(version: 20160925011655) do
     t.datetime "updated_at",        null: false
   end
 
+  create_table "user_conversations", force: :cascade do |t|
+    t.integer  "user_id"
+    t.integer  "conversation_id"
+    t.datetime "created_at",      null: false
+    t.datetime "updated_at",      null: false
+    t.index ["conversation_id"], name: "index_user_conversations_on_conversation_id"
+    t.index ["user_id", "conversation_id"], name: "index_user_conversations_on_user_id_and_conversation_id", unique: true
+    t.index ["user_id"], name: "index_user_conversations_on_user_id"
+  end
+
   create_table "users", force: :cascade do |t|
     t.string   "email",                              null: false
     t.string   "encrypted_password"
@@ -68,7 +88,7 @@ ActiveRecord::Schema.define(version: 20160925011655) do
     t.string   "city",                               null: false
     t.string   "state",                              null: false
     t.integer  "zipcode",                            null: false
-    t.string   "pace",                               null: false
+    t.integer  "pace",                               null: false
     t.string   "availability",                       null: false
     t.boolean  "buddy_pref",                         null: false
     t.string   "run_pref",                           null: false

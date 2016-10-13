@@ -1,4 +1,12 @@
-<p id="notice"><%= notice %></p>
+<nav class="brand">
+    <ul>
+      <% if user_signed_in? %>
+        <li id="greeting">Hi, <%= current_user.first_name %></li>
+        <li><%= link_to('Profile', profile_path(current_user) ) %></li>
+        <li><%= link_to('Logout', destroy_user_session_path, :method => :delete) %></li>
+      <% end %>
+    </ul>
+  </nav>
 
 <div class="left-align">
   <h1>Activity Feed</h1>
@@ -23,32 +31,6 @@
   <%= month_calendar do |date| %>
     <%= date.strftime("%d") %>
   <% end %>
-
-  <div class="tab-body">
-    <div class="tab-container">
-      <ul class="tabs">
-        <li class="tab-link current" data-tab="tab-1">Social Runs</li>
-        <li class="tab-link" data-tab="tab-2">Local Races</li>
-      </ul>
-
-      <div id="tab-1" class="tab-content current">
-        <h3>Pannikin Run</h3>
-        <p>Date: Sept 30, 2016</p>
-        <p>Time: 10am</p>
-        <p>Location: Leucadia, CA</p>
-        <p>Host: bosha</p>
-        <span class="italic">Add a comment</span> |
-        <span class="italic">Message the host</span> |
-        <span class="italic">Sign up</span>
-      </div>
-
-      <div id="tab-2" class="tab-content">
-        <h3>Turkey Trot</h3>
-        <p>Date: Sept 30, 2016</p>
-        <p>Time: 10am</p>
-        <p>Location: Encinitas, CA</p>
-        <span class="italic">Sign up</span>
-      </div>
 
     </div>
   </div>

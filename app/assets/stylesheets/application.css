@@ -23,6 +23,14 @@ body {
 .form-actions {
   margin: 10px 5px 10px 5px;
 }
+.login-form {
+  max-width: 30%;
+  margin: auto;
+}
+.reg-form {
+  max-width: 30%;
+  margin: auto;
+}
 
 /*Top Nav*/
 nav ul {
@@ -32,6 +40,7 @@ nav ul {
   overflow: hidden;
   background-color: #000066;
   border-radius: 8px;
+color: #c2d6d6;
 }
 nav li a {
   float: right;
@@ -40,6 +49,7 @@ nav li a {
   padding: 14px 16px;
   text-decoration: none;
   font-size: 1.2em;
+  color: #c2d6d6;
 }
 #greeting {
   float: left;
@@ -52,6 +62,9 @@ nav li a {
 h1{
   color: #000066;
   text-align: center;
+  background-color: #c2d6d6;
+  padding: 10px;
+  border-radius: 8px
 }
 .left-align{
   float: left;
@@ -76,7 +89,9 @@ h1{
 }
 .italic {
   font-style: italic;
+  color: #000066;
 }
+
 .inline {
   display: inline;
 }
@@ -97,6 +112,7 @@ h1{
     }
     .tab-container{
       margin: 0 auto;
+      max-width: 80%;
     }
     ul.tabs{
       margin: 0px;

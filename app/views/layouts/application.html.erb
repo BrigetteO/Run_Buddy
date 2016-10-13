@@ -4,7 +4,7 @@
     <title>RunBuddy</title>
     <%= csrf_meta_tags %>
 
-    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <link href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
@@ -12,17 +12,12 @@
 
   <body>
   <nav class="brand">
-    <ul>
-      <li><%= link_to('Home', runs_path) %></li>
-      <% if user_signed_in? %>
-        <li id="greeting">Hi, <%= current_user.first_name %></li>
-        <li><%= link_to('Profile', profile_path(current_user) ) %></li>
-        <li><%= link_to('Logout', destroy_user_session_path, :method => :delete) %></li>
-      <% else %>
+    <% if !user_signed_in? %>
+      <ul>
         <li><%= link_to('Login', new_user_session_path) %></li>
         <li><%= link_to('Register', new_user_registration_path) %></li>
-      <% end %>
-    </ul>
+      </ul>
+    <% end %>
   </nav>
   <%= yield %>
   </body>

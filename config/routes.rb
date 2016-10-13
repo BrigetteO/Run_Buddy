@@ -10,9 +10,10 @@ Rails.application.routes.draw do
 
   devise_for :users, controllers: { registrations: 'users/registrations'}
 
-  resources :users, only: [:new, :create] do
-    get 'messages/new', to: 'messages#new', as: 'new_message'
-    post 'messages', to: 'messages#create', as: 'messages'
+  resources :users, only: [:new, :create]
+
+  resources :conversations do
+    resources :messages
   end
 
   root to: "runs#index"

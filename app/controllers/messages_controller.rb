@@ -1,33 +1,30 @@
 class MessagesController < ApplicationController
-  # before_action :set_recipient
+  before_action :set_conversation
+
+  def index
+    @messages = @conversation.messages
+  end
 
   def new
-    @message = Message.new
+    @message = @conversation.messages.new
   end
 
   def create
-    @message = Message.new(message_params)
-    @message.user_id = current_user.id
-    @message.recipient_id = params[:recipient_id]
-
-    respond_to do |format|
-      if @message.save
-        # UserMailer.notification_email(@message).deliver_later
-        format.html { redirect_to @message, notice: 'Message sent!' }
-        format.json { render :show, status: :created, location: @message }
-      else
-        format.html { render :new }
-        format.json { render json: @message.errors, status: :unprocessable_entity }
-      end
+    unless current_user.has_joined?(conversation)
+      @conversation.users << current_user
+    end
+    @message = @conversation.messages.new(message_params)
+    if @message.save
+      redirect_to conversations_messages_path(@conversation)
     end
   end
 
   private
-    # def set_recipient
-    #   @recipient = User.find(params[:user_id])
-    # end
-
     def message_params
-      params.require(:message).permit(:content, :recipient_id)
+      params.require(:message).permit(:content, :user_id)
     end
+
+  def set_conversation
+    @conversation = Conversation.find(params[:conversation_id])
+  end
 end
