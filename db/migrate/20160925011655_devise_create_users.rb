@@ -12,7 +12,7 @@ class DeviseCreateUsers < ActiveRecord::Migration[5.0]
       t.string :city, null: false
       t.string :state, null: false
       t.integer :zipcode, null: false
-      t.string :pace, null: false
+      t.integer :pace, null: false
       t.string :availability, null: false
       t.boolean :buddy_pref, null: false
       t.string :run_pref, null: false

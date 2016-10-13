@@ -1,6 +1,10 @@
 class Message < ApplicationRecord
   validates :content, presence: true
 
-  belongs_to :sender,  class_name: :User, foreign_key: :user_id
-  belongs_to :recipient, class_name: :User, foreign_key: :recipient_id
+  belongs_to :user
+  belongs_to :conversation
+
+  def message_time
+    created_at.strftime("%m/%d/%y at %l:%M %p")
+  end
 end

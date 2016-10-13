@@ -1,14 +1,22 @@
+# Syntax: verb 'path', to: 'controller#action'
+
 Rails.application.routes.draw do
-  root to: "runs#index"
-  resources :users
-  devise_for :users
-  devise_scope :user do
-    get 'register', to: "devise/registrations#new", as: :register
-    get 'login', to: 'devise/sessions#new', as: :login
-  end
-  resources :messages, :except => [:index]
+  get 'profiles/:id', to: 'profiles#show', as: 'profile'
+
   resources :runs do
-    resources :comments, :except => [:index]
-    resources :kudos, :except => [:index]
+    resources :comments, except: :index
+    resources :kudos, only: :create
   end
+
+  devise_for :users, controllers: { registrations: 'users/registrations'}
+
+  resources :users, only: [:new, :create]
+
+  resources :conversations do
+    resources :messages
+  end
+
+  root to: "runs#index"
 end
+
+

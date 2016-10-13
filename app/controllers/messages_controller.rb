@@ -1,57 +1,30 @@
 class MessagesController < ApplicationController
-  before_action :set_user, only: [:show, :edit, :update, :destroy]
+  before_action :set_conversation
 
-  def show
+  def index
+    @messages = @conversation.messages
   end
 
   def new
-    @recipient = User.find(params[:recipient_id])
-  end
-
-  def edit
+    @message = @conversation.messages.new
   end
 
   def create
-    @message = Message.new(message_params)
-
-    respond_to do |format|
-      if @message.save
-        # UserMailer.notification_email(@message).deliver_later
-        format.html { redirect_to @message, notice: 'Message sent!' }
-        format.json { render :show, status: :created, location: @message }
-      else
-        format.html { render :new }
-        format.json { render json: @message.errors, status: :unprocessable_entity }
-      end
+    unless current_user.has_joined?(conversation)
+      @conversation.users << current_user
     end
-  end
-
-  def update
-    respond_to do |format|
-      if @message.update(message_params)
-        format.html { redirect_to @message, notice: 'Message updated!' }
-        format.json { render :show, status: :ok, location: @message }
-      else
-        format.html { render :edit }
-        format.json { render json: @message.errors, status: :unprocessable_entity }
-      end
-    end
-  end
-
-  def destroy
-    @message.destroy
-    respond_to do |format|
-      format.html { redirect_to messages_url, notice: 'Message deleted!' }
-      format.json { head :no_content }
+    @message = @conversation.messages.new(message_params)
+    if @message.save
+      redirect_to conversations_messages_path(@conversation)
     end
   end
 
   private
-    def set_message
-      @message = Message.find(params[:id])
+    def message_params
+      params.require(:message).permit(:content, :user_id)
     end
 
-    def message_params
-      params.require(:message).permit(:content, :recipient_id, :user_id)
-    end
+  def set_conversation
+    @conversation = Conversation.find(params[:conversation_id])
+  end
 end

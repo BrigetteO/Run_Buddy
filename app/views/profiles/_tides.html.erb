@@ -1,0 +1,17 @@
+<table>
+  <tr>
+    <th>Date</th>
+    <th>Time</th>
+    <th>Height</th>
+    <th>High/Low</th>
+  </tr>
+  <% @tides.current.each do |tide| %>
+
+  <tr>
+    <td><%= tide.convert_date %></td>
+    <td><%= tide.convert_time %></td>
+    <td><%= tide.predictions_in_ft %> ft</td>
+    <td><%= tide.highlow %></td>
+  </tr>
+  <% end %>
+</table>

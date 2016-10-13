@@ -12,11 +12,138 @@
  *
  *= require_tree .
  *= require_self
+*= require simple_calendar
  */
-
+body {
+  font-family: 'Trebuchet MS', serif;
+}
 .form-inputs input {
   margin: 5px;
 }
 .form-actions {
   margin: 10px 5px 10px 5px;
+}
+.login-form {
+  max-width: 30%;
+  margin: auto;
+}
+.reg-form {
+  max-width: 30%;
+  margin: auto;
+}
+
+/*Top Nav*/
+nav ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 10px;
+  overflow: hidden;
+  background-color: #000066;
+  border-radius: 8px;
+color: #c2d6d6;
+}
+nav li a {
+  float: right;
+  display: block;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  font-size: 1.2em;
+  color: #c2d6d6;
+}
+#greeting {
+  float: left;
+  color: #c2d6d6;
+  padding: 14px 16px;
+  font-size: 1.2em;
+}
+
+/*Index*/
+h1{
+  color: #000066;
+  text-align: center;
+  background-color: #c2d6d6;
+  padding: 10px;
+  border-radius: 8px
+}
+.left-align{
+  float: left;
+  display: inline-block;
+  width: 40%;
+}
+.right-align{
+  float: right;
+  display: inline-block;
+  width: 50%;
+}
+.container {
+  padding: 10px 20px 10px 20px;
+  background-color: rgba(255,255,255, 0.5);
+  color: inherit;
+  text-align: center;
+  border-radius: 8px;
+}
+.run-index {
+  padding-bottom: 10px;
+  border-bottom: 2px #000066 dotted;
+}
+.italic {
+  font-style: italic;
+  color: #000066;
+}
+
+.inline {
+  display: inline;
+}
+.kudos {
+  background: none;
+  border: none;
+  color: green;
+}
+.comments {
+  background: none;
+  border: none;
+  color: purple;
+}
+/*TABS*/
+.tab-body{
+      margin-top: 40px;
+      line-height: 1.6;
+    }
+    .tab-container{
+      margin: 0 auto;
+      max-width: 80%;
+    }
+    ul.tabs{
+      margin: 0px;
+      padding: 0px;
+      list-style: none;
+    }
+    ul.tabs li{
+      background: none;
+      color: #000066;
+      display: inline-block;
+      padding: 10px 15px;
+      cursor: pointer;
+    }
+    ul.tabs li.current{
+      background: rgba(255,255,255, 0.5);
+    }
+    .tab-content{
+      display: none;
+      background: rgba(255,255,255, 0.5);
+      padding: 15px;
+    }
+    .tab-content.current{
+      display: inherit;
+    }
+textarea{
+  border-radius: 25px;
+  display:block;
+  border: none;
+  overflow:hidden;
+  padding:10px;
+  width:80%;
+  margin:50px auto;
+  background:rgba(255,255,255, 0.5);
 }
