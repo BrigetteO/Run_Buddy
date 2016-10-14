@@ -10,11 +10,11 @@ Rails.application.routes.draw do
 
   devise_for :users, controllers: { registrations: 'users/registrations'}
 
-  resources :users, only: [:new, :create] do 
-    resources :conversations do
-      resources :messages
-    end 
-  end
+  resources :users, only: [:new, :create]
+
+  get "mailbox/inbox" => "mailbox#inbox", as: :mailbox_inbox
+  get "mailbox/sent" => "mailbox#sent", as: :mailbox_sent
+  get "mailbox/trash" => "mailbox#trash", as: :mailbox_trash
 
   root to: "runs#index"
 end

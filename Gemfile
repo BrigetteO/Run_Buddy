@@ -32,6 +32,7 @@ gem 'country_select'
 gem "simple_calendar", "~> 2.0"
 gem 'pry-rails'
 gem 'will_paginate'
+gem 'mailboxer'
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
