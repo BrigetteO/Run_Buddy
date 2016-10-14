@@ -2,7 +2,7 @@ class RunsController < ApplicationController
   before_action :set_run, only: [:show, :edit, :update, :destroy]
 
   def index
-    @runs = Run.all.paginate(page: params[:page], per_page: 10)
+    @runs = Run.paginate(page: params[:page], per_page: 10)
   end
 
   def show

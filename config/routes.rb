@@ -10,10 +10,10 @@ Rails.application.routes.draw do
 
   devise_for :users, controllers: { registrations: 'users/registrations'}
 
-  resources :users, only: [:new, :create]
-
-  resources :conversations do
-    resources :messages
+  resources :users, only: [:new, :create] do 
+    resources :conversations do
+      resources :messages
+    end 
   end
 
   root to: "runs#index"

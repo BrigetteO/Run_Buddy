@@ -22,6 +22,7 @@
       <span class="italic"><%= link_to('Kudos', run_kudos_path(run), method: :post ) %></span>
     </div>
     <% end %>
+    <%= will_paginate @runs %>
   </div>
 </div>
 
