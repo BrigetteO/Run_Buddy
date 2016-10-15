@@ -17,15 +17,10 @@ class RunsController < ApplicationController
 
   def create
     @run = current_user.runs.build(run_params)
-
-    respond_to do |format|
-      if @run.save
-        format.html { redirect_to @run, notice: 'Run was successfully created.' }
-        format.json { render :show, status: :created, location: @run }
-      else
-        format.html { render :new }
-        format.json { render json: @run.errors, status: :unprocessable_entity }
-      end
+    if @run.save
+      redirect_to @run
+    else
+      render :new
     end
   end
 

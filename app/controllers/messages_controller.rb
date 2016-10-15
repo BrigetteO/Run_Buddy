@@ -1,14 +1,28 @@
 class MessagesController < ApplicationController
+  before_action :set_recipient
  
   def new
-    @user = User.find(params[:user])
-    @message = current_user.messages.new
+    @message = Message.new(recipient_id: params[:user_id])
+
   end
- 
+
   def create
-    recipients = User.where(id: params['recipients'])
-    conversation = current_user.send_message(recipients, params[:message][:body], params[:message][:subject]).conversation
-    flash[:success] = "Message has been sent!"
-    redirect_to conversation_path(conversation)
+    @message = Message.new(message_params)
+    @message.sender_id = current_user.id
+    @message.recipient_id = @recipient.id
+    if @message.save
+      redirect_to profile_path(current_user)
+    else
+      render :new
+    end
+  end 
+
+  private 
+  def message_params
+    params.require(:message).permit(:title, :content, :recipient_id)
+  end
+
+  def set_recipient
+      @recipient = User.find params[:user_id] if params[:user_id].present?
   end
 end

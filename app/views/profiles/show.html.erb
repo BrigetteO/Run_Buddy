@@ -3,7 +3,6 @@
     <li id="greeting">Hi, <%= current_user.first_name %></li>
     <li class="nav"><%= link_to 'Log Out', destroy_user_session_path, method: :delete %></li>
     <li class="nav"><%= link_to('Home', runs_path) %></li>
-    <li class="nav"><%= link_to 'Inbox', conversations_path %></li>
   </ul>
 </nav>
 
@@ -12,8 +11,9 @@
       <ul class="tabs">
         <li class="tab-link current" data-tab="tab-1">My Activities</li>
         <li class="tab-link" data-tab="tab-2">My Buddies</li>
+        <li class="tab-link" data-tab="tab-3">My Messages</li>
         <% if @user.run_pref == "beach" %>
-        <li class="tab-link" data-tab="tab-3">Check the Tides</li>
+        <li class="tab-link" data-tab="tab-4">Check the Tides</li>
         <% end %>
       </ul>
 
@@ -51,19 +51,33 @@
           <p>You don't have any buddies yet!</p>
         <% else %>
           <% @user.find_buddies.each do |buddy| %>
-          <span><%= buddy.first_name %> is available in the <%= buddy.availability %> for <%= buddy.run_pref %> runs!</span><br>
-            <span class="inline italic"> <%= buddy.user_name %></span> |
-            <span class="inline italic"> <%= buddy.city %></span> |
-            <span class="inline italic"> <%= buddy.gender.capitalize %></span> |
-            <span class="inline italic"> <%= buddy.age %> yrs old</span> |
-            <span class="inline italic"> <%= buddy.pace %>:00 min/mile</span> |
-            <span class="inline italic"><%# link_to "New Conversation", new_conversation_path %></span>
+            <span><%= buddy.first_name %> is available in the <%= buddy.availability %> for <%= buddy.run_pref %> runs!</span><br>
+            <span class="inline italic"><%= buddy.user_name %></span> |
+            <span class="inline italic"><%= buddy.city %></span> |
+            <span class="inline italic"><%= buddy.gender.capitalize %></span> |
+            <span class="inline italic"><%= buddy.age %> yrs old</span> |
+            <span class="inline italic"><%= buddy.pace %>:00 min/mile</span> |
+            <span class="inline italic"><%= link_to "Send Message", new_user_message_path(buddy.id) %></span>
            <br><br>
           <% end %>
         <% end %>
       </div>
 
       <div id="tab-3" class="tab-content">
+        <% if @user.received_messages.empty? %>
+          <p>You don't have any messages yet!</p>
+        <% else %>
+          <% @user.received_messages.each do |message| %>
+            <span class="inline italic"><%= message.title %></span> |
+            <span class="inline italic"><%= message.content %></span> |
+            <span class="inline italic"><%= message.sender.user_name %></span> |
+            <span class="inline italic"><%= message.message_time %></span> |
+            <span class="inline italic"><%= link_to "Reply", new_user_message_path(message.sender_id) %></span>
+          <% end %>
+        <% end %>
+      </div>
+
+      <div id="tab-4" class="tab-content">
         <% if @user.run_pref == "beach" %>
          <%= render 'tides' %>
         <% end %>

@@ -1,18 +1,19 @@
-<%= form_tag messages_path, method: :post do %>
-  <div class="form-group">
-    <%= label_tag 'message[subject]', 'Subject' %>
-    <%= text_field_tag 'message[subject]', nil, class: 'form-control', required: true %>
+<div class="container">
+
+<h1>New Message</h1>
+
+<%= simple_form_for [@recipient, @message] do |f| %>
+  <%= f.error_notification %>
+
+  <div class="form-inputs">
+    <%= f.input :title, label: false, placeholder: "Title", required: true, autofocus: true %>
+    <%= f.input :content, as: :text, input_html: {rows: 10, cols: 10}, label: false, placeholder: "Message...", required: true, autofocus: true %>
+
   </div>
 
-  <div class="form-group">
-    <%= label_tag 'message[body]', 'Message' %>
-    <%= text_area_tag 'message[body]', nil, cols: 3, class: 'form-control', required: true %>
+  <div class="form-actions">
+    <%= f.button :submit, "Send" %>
   </div>
 
-  <div class="form-group">
-    <%= label_tag 'recipients', 'Choose recipients' %>
-    <%= select_tag 'recipients', recipients_options, multiple: true, class: 'form-control' %>
-  </div>
-
-  <%= submit_tag 'Send', class: 'btn btn-primary' %>
 <% end %>
+</div>
