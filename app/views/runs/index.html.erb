@@ -12,9 +12,9 @@
         <h3><%= run.title %></h3>
         <span class="italic"><%= run.user.user_name %></span> |
         <span class="italic"><%= run.comments.count %> comments</span  >
-        <span class="italic"><%= link_to('Comment',   new_run_comment_path(run) ) %></span> |
+        <span class="italic"><%= link_to new_run_comment_path(run) do %><i class="fa fa-comments" aria-hidden="true"></i><% end %></span> |
         <span class="italic"><%= run.kudos.count %> kudos</span>
-        <span class="italic"><%= link_to('Kudos', run_kudos_path(run)  , method: :post ) %></span>
+        <span class="italic"><%= link_to run_kudos_path(run), method: :post do %><i class="fa fa-thumbs-up" aria-hidden="true"></i><% end %></span>
       </div>
     <% end %>
     <%= will_paginate @runs %>

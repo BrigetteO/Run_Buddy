@@ -57,7 +57,7 @@
             <span class="inline italic"><%= buddy.gender.capitalize %></span> |
             <span class="inline italic"><%= buddy.age %> yrs old</span> |
             <span class="inline italic"><%= buddy.pace %>:00 min/mile</span> |
-            <span class="inline italic"><%= link_to "Send Message", new_user_message_path(buddy.id) %></span>
+            <span class="inline italic"><%= link_to new_user_message_path(buddy.id) do %><i class="fa fa-envelope" aria-hidden="true"></i><% end %></span>
            <br><br>
           <% end %>
         <% end %>
@@ -68,11 +68,11 @@
           <p>You don't have any messages yet!</p>
         <% else %>
           <% @user.received_messages.each do |message| %>
-            <span class="inline italic"><%= message.title %></span> |
-            <span class="inline italic"><%= message.content %></span> |
+            <h3><%= message.title %></h3>
+            <p><%= message.content %></p>
             <span class="inline italic"><%= message.sender.user_name %></span> |
             <span class="inline italic"><%= message.message_time %></span> |
-            <span class="inline italic"><%= link_to "Reply", new_user_message_path(message.sender_id) %></span>
+            <span class="inline italic"><%= link_to new_user_message_path(message.sender_id) do %><i class="fa fa-envelope" aria-hidden="true"></i><% end %></span>
           <% end %>
         <% end %>
       </div>
