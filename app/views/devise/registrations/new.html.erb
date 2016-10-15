@@ -1,7 +1,6 @@
-<div class="reg-form">
 <div class="container">
-<h2>Welcome to RunBuddy</h2>
-<p>Sign up today to find running buddies near you!</p>
+
+<h1>Register</h1>
 
 <%= simple_form_for(resource, as: resource_name, url: user_registration_path) do |f| %>
   <%= f.error_notification %>
@@ -26,7 +25,7 @@
   </div>
 
   <div class="form-actions">
-    <%= f.button :submit, "Sign up" %>
+    <%= f.button :submit, "Register" %>
   </div>
 <% end %>
 <p>Already have an account? <%= render "devise/shared/links" %>

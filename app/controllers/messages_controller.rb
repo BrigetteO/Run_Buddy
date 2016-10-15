@@ -1,30 +1,28 @@
 class MessagesController < ApplicationController
-  before_action :set_conversation
-
-  def index
-    @messages = @conversation.messages
-  end
-
+  before_action :set_recipient
+ 
   def new
-    @message = @conversation.messages.new
+    @message = Message.new(recipient_id: params[:user_id])
+
   end
 
   def create
-    unless current_user.has_joined?(conversation)
-      @conversation.users << current_user
-    end
-    @message = @conversation.messages.new(message_params)
+    @message = Message.new(message_params)
+    @message.sender_id = current_user.id
+    @message.recipient_id = @recipient.id
     if @message.save
-      redirect_to conversations_messages_path(@conversation)
+      redirect_to profile_path(current_user)
+    else
+      render :new
     end
+  end 
+
+  private 
+  def message_params
+    params.require(:message).permit(:title, :content, :recipient_id)
   end
 
-  private
-    def message_params
-      params.require(:message).permit(:content, :user_id)
-    end
-
-  def set_conversation
-    @conversation = Conversation.find(params[:conversation_id])
+  def set_recipient
+      @recipient = User.find params[:user_id] if params[:user_id].present?
   end
 end

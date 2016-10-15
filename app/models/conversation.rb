@@ -1,9 +1,9 @@
 class Conversation < ApplicationRecord
-  has_many :messages
-  has_many :user_conversations
-  has_many :users, through: :user_conversations
+ 
+  belongs_to :user
+  belongs_to :message
 
-  def includes_user?(user)
-    users.where(id: user).exist?
+  def message_time
+    created_at.strftime("%m/%d/%y at %l:%M %p")
   end
 end

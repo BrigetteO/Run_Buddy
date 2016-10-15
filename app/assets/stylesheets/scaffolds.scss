@@ -1,7 +1,7 @@
 body {
   background-color: #fff;
   color: #333;
-  font-family: verdana, arial, helvetica, sans-serif;
+  font-family: 'Trebuchet MS', serif;
   font-size: 13px;
   line-height: 18px;
   margin: 33px;
@@ -14,10 +14,10 @@ body {
 }
 
 p, ol, ul, td {
-  font-family: verdana, arial, helvetica, sans-serif;
-  font-size: 13px;
+  font-family: 'Trebuchet MS', serif;
   line-height: 18px;
   margin: 33px;
+  color: #000066;
 }
 
 pre {
@@ -27,17 +27,7 @@ pre {
 }
 
 a {
-  color: #c2d6d6;
-
-  &:visited {
-    color: #c2d6d6;
-  }
-
-  &:hover {
-    color: #c2d6d6;
-    background-color: #476b6b;
-    border-radius: 8px
-  }
+  color: #000066;
 }
 
 th {

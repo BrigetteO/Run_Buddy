@@ -2,7 +2,7 @@ class RunsController < ApplicationController
   before_action :set_run, only: [:show, :edit, :update, :destroy]
 
   def index
-    @runs = Run.all.paginate(page: params[:page], per_page: 10)
+    @runs = Run.paginate(page: params[:page], per_page: 10)
   end
 
   def show
@@ -17,15 +17,10 @@ class RunsController < ApplicationController
 
   def create
     @run = current_user.runs.build(run_params)
-
-    respond_to do |format|
-      if @run.save
-        format.html { redirect_to @run, notice: 'Run was successfully created.' }
-        format.json { render :show, status: :created, location: @run }
-      else
-        format.html { render :new }
-        format.json { render json: @run.errors, status: :unprocessable_entity }
-      end
+    if @run.save
+      redirect_to @run
+    else
+      render :new
     end
   end
 

@@ -8,15 +8,15 @@ Rails.application.routes.draw do
     resources :kudos, only: :create
   end
 
-  devise_for :users, controllers: { registrations: 'users/registrations'}
+  devise_for :users, controllers: { registrations: 'users/registrations', sessions: 'users/sessions' }
 
-  resources :users, only: [:new, :create]
+  resources :conversations, only: [:index, :show, :destroy]
 
-  resources :conversations do
-    resources :messages
-  end
+  resources :users, only: [:new, :create] do
+    resources :messages, only: [:new, :create]
+  end 
 
-  root to: "runs#index"
+  root to: "welcome#index"
 end
 
 

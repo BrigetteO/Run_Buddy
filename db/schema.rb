@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161013024422) do
+ActiveRecord::Schema.define(version: 20161015023725) do
 
   create_table "comments", force: :cascade do |t|
     t.string   "content"
@@ -21,10 +21,10 @@ ActiveRecord::Schema.define(version: 20161013024422) do
   end
 
   create_table "conversations", force: :cascade do |t|
-    t.integer  "sender_id"
-    t.integer  "recipient_id"
-    t.datetime "created_at",   null: false
-    t.datetime "updated_at",   null: false
+    t.integer  "user_id"
+    t.integer  "message_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "kudos", force: :cascade do |t|
@@ -35,14 +35,12 @@ ActiveRecord::Schema.define(version: 20161013024422) do
   end
 
   create_table "messages", force: :cascade do |t|
-    t.text     "content"
-    t.integer  "conversation_id"
-    t.integer  "user_id"
-    t.boolean  "read",            default: false
-    t.datetime "created_at",                      null: false
-    t.datetime "updated_at",                      null: false
-    t.index ["conversation_id"], name: "index_messages_on_conversation_id"
-    t.index ["user_id"], name: "index_messages_on_user_id"
+    t.string   "title"
+    t.string   "content"
+    t.integer  "recipient_id"
+    t.integer  "sender_id"
+    t.datetime "created_at",   null: false
+    t.datetime "updated_at",   null: false
   end
 
   create_table "runs", force: :cascade do |t|
@@ -65,16 +63,6 @@ ActiveRecord::Schema.define(version: 20161013024422) do
     t.string   "highlow"
     t.datetime "created_at",        null: false
     t.datetime "updated_at",        null: false
-  end
-
-  create_table "user_conversations", force: :cascade do |t|
-    t.integer  "user_id"
-    t.integer  "conversation_id"
-    t.datetime "created_at",      null: false
-    t.datetime "updated_at",      null: false
-    t.index ["conversation_id"], name: "index_user_conversations_on_conversation_id"
-    t.index ["user_id", "conversation_id"], name: "index_user_conversations_on_user_id_and_conversation_id", unique: true
-    t.index ["user_id"], name: "index_user_conversations_on_user_id"
   end
 
   create_table "users", force: :cascade do |t|
