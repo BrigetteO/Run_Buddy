@@ -5,20 +5,16 @@
     <%= csrf_meta_tags %>
 
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <link href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet">
+
+     <link href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet">
+
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+   
   </head>
 
   <body>
-  <nav class="brand">
-    <% if !user_signed_in? %>
-      <ul>
-        <li><%= link_to('Login', new_user_session_path) %></li>
-        <li><%= link_to('Register', new_user_registration_path) %></li>
-      </ul>
-    <% end %>
-  </nav>
-  <%= yield %>
+    <%= yield %>
   </body>
 </html>

@@ -1,38 +1,21 @@
 <nav class="brand">
-    <ul>
-      <% if user_signed_in? %>
-        <li id="greeting">Hi, <%= current_user.first_name %></li>
-        <li><%= link_to('Profile', profile_path(current_user) ) %></li>
-        <li><%= link_to('Logout', destroy_user_session_path, :method => :delete) %></li>
-      <% end %>
-    </ul>
-  </nav>
-
-<div class="left-align">
-  <h1>Activity Feed</h1>
+  <ul>
+    <li id="greeting">Hi, <%= current_user.first_name %></li>
+    <li class="nav"><%= link_to 'Log Out', destroy_user_session_path, method: :delete %></li>
+    <li class="nav"><%= link_to('Profile', profile_path(current_user)) %></li>
+  </ul>
+</nav>
 
   <div class="container">
     <% @runs.each do |run| %>
-    <div class="run-index">
-      <h3><%= run.title %></h3>
-      <span class="italic"><%= run.user.user_name %></span> |
-      <span class="italic"><%= run.comments.count %> comments</span>
-      <span class="italic"><%= link_to('Comment', new_run_comment_path(run) ) %></span> |
-      <span class="italic"><%= run.kudos.count %> kudos</span>
-      <span class="italic"><%= link_to('Kudos', run_kudos_path(run), method: :post ) %></span>
-    </div>
+      <div class="run-index">
+        <h3><%= run.title %></h3>
+        <span class="italic"><%= run.user.user_name %></span> |
+        <span class="italic"><%= run.comments.count %> comments</span  >
+        <span class="italic"><%= link_to('Comment',   new_run_comment_path(run) ) %></span> |
+        <span class="italic"><%= run.kudos.count %> kudos</span>
+        <span class="italic"><%= link_to('Kudos', run_kudos_path(run)  , method: :post ) %></span>
+      </div>
     <% end %>
     <%= will_paginate @runs %>
   </div>
-</div>
-
-<div class="right-align">
-  <h1>Upcoming Events</h1>
-
-  <%= month_calendar do |date| %>
-    <%= date.strftime("%d") %>
-  <% end %>
-
-    </div>
-  </div>
-</div>

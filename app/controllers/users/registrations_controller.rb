@@ -1,5 +1,5 @@
 class Users::RegistrationsController < Devise::RegistrationsController
-  skip_before_action :authenticate_user!
+  skip_before_filter :require_no_authentication, :only => [ :new, :create]
   before_action :configure_permitted_parameters, only: [:create]
 # before_action :configure_account_update_params, only: [:update]
 

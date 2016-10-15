@@ -31,8 +31,14 @@ gem 'simple_form'
 gem 'country_select'
 gem "simple_calendar", "~> 2.0"
 gem 'pry-rails'
+gem 'bootstrap-sass'
+gem 'compass-rails'
+gem 'bootstrap-will_paginate'
 gem 'will_paginate'
 gem 'mailboxer'
+gem 'gravatar_image_tag'
+gem 'chosen-rails'
+gem 'jquery-turbolinks'
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development

@@ -12,24 +12,82 @@
  *
  *= require_tree .
  *= require_self
-*= require simple_calendar
+ *= require simple_calendar
  */
-body {
+
+input.optional {
+  padding: 14px 16px;
+  font-size: 1.5em;
+  border-radius: 8px;
+  border: none;
+  font-family: 'Trebuchet MS', serif;
+  margin: 10px 5px 20px 5px;
+}
+input.required {
+  padding: 14px 16px;
+  font-size: 1.5em;
+  border-radius: 8px;
+  border: none;
+  font-family: 'Trebuchet MS', serif;
+  margin: 10px 5px 20px 5px;
+}
+label.required {
+  padding-top: 14px;
+  font-size: 1.5em;
+  font-family: 'Trebuchet MS', serif;
+  margin: 10px 5px 10px 5px;
+  color: #000066;
+}
+label.checkbox {
+  font-size: 1.2em;
+  font-family: 'Trebuchet MS', serif;
+  margin: 10px 5px 20px 5px;
+  color: #000066;
+}
+.radio label {
+  font-size: 1.5em;
+  font-family: 'Trebuchet MS', serif;
+  color: #000066;
+  margin: 0 5px 0 5px;
+  display: inline;
+}
+select.select.required {
+  font-size: 1.5em;
+  font-family: 'Trebuchet MS', serif;
+  background-color: rgba(255,255,255, 0.5);
+  border: none;
+  color: #000066;
+}
+.form-actions input.btn {
+  text-align: center;
+  width: 40%;
+  padding: 14px 16px;
+  text-decoration: none;
+  font-size: 1.5em;
+  font-weight: bold;
+  background: #e6ffcc;
+  border-radius: 8px;
+  border: none;
+  color: #000066;
+  font-family: 'Trebuchet MS', serif;
+  margin: 40px 5px 20px 5px;
+}
+
+/*Home*/
+.button_to input{
+  text-align: center;
+  width: 40%;
+  padding: 14px 16px;
+  text-decoration: none;
+  font-size: 1.5em;
+  background: #e6ffcc;
+  border-radius: 8px;
+  border: none;
+  color: #000066;
   font-family: 'Trebuchet MS', serif;
 }
-.form-inputs input {
-  margin: 5px;
-}
-.form-actions {
-  margin: 10px 5px 10px 5px;
-}
-.login-form {
-  max-width: 30%;
-  margin: auto;
-}
-.reg-form {
-  max-width: 30%;
-  margin: auto;
+.button-space {
+  margin: 20px;
 }
 
 /*Top Nav*/
@@ -40,9 +98,8 @@ nav ul {
   overflow: hidden;
   background-color: #000066;
   border-radius: 8px;
-color: #c2d6d6;
 }
-nav li a {
+.nav a{
   float: right;
   display: block;
   text-align: center;
@@ -57,14 +114,15 @@ nav li a {
   padding: 14px 16px;
   font-size: 1.2em;
 }
-
+.nav a:hover {
+    background-color: #476b6b;
+    border-radius: 8px
+}
 /*Index*/
-h1{
+h1 {
   color: #000066;
-  text-align: center;
-  background-color: #c2d6d6;
-  padding: 10px;
-  border-radius: 8px
+  padding-bottom: 40px;
+  font-family: 'Trebuchet MS', serif;
 }
 .left-align{
   float: left;
@@ -77,11 +135,13 @@ h1{
   width: 50%;
 }
 .container {
-  padding: 10px 20px 10px 20px;
   background-color: rgba(255,255,255, 0.5);
   color: inherit;
-  text-align: center;
   border-radius: 8px;
+  margin: auto;
+  margin-top: 5%;
+  padding: 5%;
+  text-align: center;
 }
 .run-index {
   padding-bottom: 10px;
@@ -91,7 +151,6 @@ h1{
   font-style: italic;
   color: #000066;
 }
-
 .inline {
   display: inline;
 }
@@ -112,7 +171,6 @@ h1{
     }
     .tab-container{
       margin: 0 auto;
-      max-width: 80%;
     }
     ul.tabs{
       margin: 0px;
