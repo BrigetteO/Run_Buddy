@@ -16,12 +16,14 @@
  */
 
 input.optional {
-  padding: 14px 16px;
+  padding: 20px;
+  width: 300px;
   font-size: 1.5em;
   border-radius: 8px;
+  font-size: 18px;
   border: none;
-  font-family: 'Trebuchet MS', serif;
-  margin: 10px 5px 20px 5px;
+  font: 18px 'Trebuchet MS', serif;
+  margin: 20px;
 }
 input.required {
   padding: 14px 16px;
@@ -41,7 +43,6 @@ label.required {
 label.checkbox {
   font-size: 1.2em;
   font-family: 'Trebuchet MS', serif;
-  margin: 10px 5px 20px 5px;
   color: #000066;
 }
 .radio label {
@@ -65,7 +66,7 @@ select.select.required {
   text-decoration: none;
   font-size: 1.5em;
   font-weight: bold;
-  background: #e6ffcc;
+  background-color: rgba(199,221,149, 0.6);
   border-radius: 8px;
   border: none;
   color: #000066;
@@ -80,7 +81,7 @@ select.select.required {
   padding: 14px 16px;
   text-decoration: none;
   font-size: 1.5em;
-  background: #e6ffcc;
+  background: #C7DD95;
   border-radius: 8px;
   border: none;
   color: #000066;
@@ -105,7 +106,7 @@ select.select.required {
   margin: 0;
   padding: 5px;
   overflow: hidden;
-  background-color: #000066;
+  background: rgba(10,10,100, 0.6);
   border-radius: 8px;
   width: 100%;
 }
@@ -123,11 +124,12 @@ nav a{
   color: #c2d6d6;
   padding: 14px 16px;
   font-size: 1.2em;
+<<<<<<< HEAD
   display: inline;
 }*/
 
 nav a:hover {
-    background-color: #476b6b;
+    background: rgba(10,100,100, 0.5);
     border-radius: 8px
 }
 /*Index*/
@@ -155,10 +157,14 @@ h3 {
   background-color: rgba(255,255,255, 0.5);
   color: inherit;
   border-radius: 8px;
-  margin: auto;
-  margin-top: 5%;
   padding: 5%;
   text-align: center;
+  width: 600px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  vertical-align: middle;
 }
 .run-index {
   padding-bottom: 10px;
@@ -171,20 +177,10 @@ h3 {
 .inline {
   display: inline;
 }
-.kudos {
-  background: none;
-  border: none;
-  color: green;
-}
-.comments {
-  background: none;
-  border: none;
-  color: purple;
-}
 /*TABS*/
 .tab-body{
       margin-top: 40px;
-      /*line-height: 1.6;*/
+      line-height: 1.6;
     }
     .tab-container{
       margin: 0 auto;
@@ -196,11 +192,12 @@ h3 {
       border-radius: 8px;
     }
     ul.tabs li{
-      background: none;
+      background: rgba(10,100,100, 0.5);
       color: #000066;
       display: inline-block;
       padding: 10px 15px;
       cursor: pointer;
+      border-radius: 8px;
     }
     ul.tabs li.current{
       background: rgba(255,255,255, 0.5);
@@ -209,7 +206,7 @@ h3 {
     .tab-content{
       display: none;
       background: rgba(255,255,255, 0.5);
-      padding: 15px;
+      padding: 10px 15px;
     }
     .tab-content.current{
       display: inherit;
