@@ -13,11 +13,14 @@
  *= require_tree .
  *= require_self
  *= require simple_calendar
+ *= require hover
  */
-
+body, h1, h3, p, span {
+  font:'Trebuchet MS', serif;
+  color: #000066;
+}
 input.optional {
-  padding: 20px;
-  width: 300px;
+  padding: 10px;
   font-size: 1.5em;
   border-radius: 8px;
   font-size: 18px;
@@ -26,12 +29,17 @@ input.optional {
   margin: 20px;
 }
 input.required {
-  padding: 14px 16px;
+  padding: 10px;
   font-size: 1.5em;
   border-radius: 8px;
   border: none;
   font-family: 'Trebuchet MS', serif;
   margin: 10px 5px 20px 5px;
+}
+textarea{
+  border-radius: 8px;
+  border: none;
+  padding:10px;
 }
 label.required {
   padding-top: 14px;
@@ -94,64 +102,35 @@ select.select.required {
 /*Top Nav*/
 .navbar .navbar-nav {
   display: inline-block;
-  float: none;
-  vertical-align: top;
 }
-
-.navbar .navbar-collapse {
-  text-align: center;
-}
-/*nav ul {
+nav ul {
   list-style-type: none;
-  margin: 0;
   padding: 5px;
   overflow: hidden;
   background: rgba(10,10,100, 0.6);
   border-radius: 8px;
-  width: 100%;
 }
 nav a{
   float: right;
-  display: block;
-  text-align: center;
-  padding: 14px 16px;
   text-decoration: none;
   font-size: 1.2em;
   color: #c2d6d6;
 }
+nav a:hover {
+  background: #327C6E !important;
+  border-radius: 8px
+}
+
 #greeting {
   float: left;
   color: #c2d6d6;
-  padding: 14px 16px;
+  padding: 10px 15px;
   font-size: 1.2em;
-<<<<<<< HEAD
   display: inline;
-}*/
-
-nav a:hover {
-    background: rgba(10,100,100, 0.5);
-    border-radius: 8px
 }
 /*Index*/
 h1 {
-  color: #000066;
   padding-bottom: 40px;
-  font-family: 'Trebuchet MS', serif;
-}
-
-h3 {
-  color: #000066;
-  font-family: 'Trebuchet MS', serif;
-}
-.left-align{
-  float: left;
-  display: inline-block;
-  width: 40%;
-}
-.right-align{
-  float: right;
-  display: inline-block;
-  width: 50%;
 }
 .container {
   background-color: rgba(255,255,255, 0.5);
@@ -159,24 +138,30 @@ h3 {
   border-radius: 8px;
   padding: 5%;
   text-align: center;
-  width: 600px;
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  vertical-align: middle;
 }
 .run-index {
-  padding-bottom: 10px;
+  padding: 10px;
   border-bottom: 2px #000066 dotted;
+}
+.run-top {
+  padding-bottom: 10px;
 }
 .italic {
   font-style: italic;
-  color: #000066;
+}
+.bold {
+  font-weight: bold;
 }
 .inline {
   display: inline;
 }
+.right{
+  float: right;
+}
+.left {
+  float: left;
+}
+
 /*TABS*/
 .tab-body{
       margin-top: 40px;
@@ -207,18 +192,10 @@ h3 {
       display: none;
       background: rgba(255,255,255, 0.5);
       padding: 10px 15px;
+      min-height: 100px;
     }
     .tab-content.current{
       display: inherit;
       border-radius: 8px;
     }
-textarea{
-  border-radius: 25px;
-  display:block;
-  border: none;
-  overflow:hidden;
-  padding:10px;
-  width:80%;
-  margin:50px auto;
-  background:rgba(255,255,255, 0.5);
-}
+

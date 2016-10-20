@@ -1,5 +1,5 @@
-source 'https://rubygems.org'
 
+source 'https://rubygems.org'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 5.0.0', '>= 5.0.0.1'
@@ -18,6 +18,7 @@ gem 'coffee-rails', '~> 4.2'
 
 # Use jquery as the JavaScript library
 gem 'jquery-rails'
+
 # Turbolinks makes navigating your web application faster. Read more: https://github.com/turbolinks/turbolinks
 gem 'turbolinks', '~> 5'
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
@@ -31,8 +32,10 @@ gem 'pry-rails'
 gem 'simple_form'
 gem 'country_select'
 gem "simple_calendar", "~> 2.0"
-gem 'materialize-sass'
 gem 'will_paginate'
+gem 'chosen-rails'
+gem 'hover-rails'
+gem 'jquery-ui-rails'
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development

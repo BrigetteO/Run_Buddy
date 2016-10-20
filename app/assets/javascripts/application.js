@@ -11,13 +11,16 @@
 // about supported directives.
 //
 //= require jquery
+//= require chosen-jquery
 //= require jquery_ujs
+//= require jquery-ui
 //= require turbolinks
 //= require_tree .
 
-$(document).ready(function() {
+$(document).on('turbolinks:load', function() {
 
-  $('ul.tabs li').click(function(){
+  $('body').on('click', 'ul.tabs li', function(){
+  	console.log("What the fuck");
     var tab_id = $(this).attr('data-tab');
 
     $('ul.tabs li').removeClass('current');
@@ -25,6 +28,6 @@ $(document).ready(function() {
 
     $(this).addClass('current');
     $("#"+tab_id).addClass('current');
-  })
+  });
 
 });
