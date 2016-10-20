@@ -1,11 +1,8 @@
 <div class="container">
-
 <h1>Register</h1>
 
 <%= simple_form_for(resource, as: resource_name, url: user_registration_path) do |f| %>
   <%= f.error_notification %>
-
-
   <div class="form-inputs">
     <%= f.input :first_name, label: false, required: true, autofocus: true %>
     <%= f.input :last_name, label: false, required: true, autofocus: true %>
@@ -23,11 +20,9 @@
     <%= f.input :availability, label: "When are you available for runs?", collection: ["Anytime", "Morning", "Afternoon", "Evening"], selected: "Anytime", required: true, autofocus: true %>
     <%= f.input :run_pref, label: "Where do you like to run?", collection: ["Anywhere", "Beach", "Trail", "Road"], selected: "Anywhere", required: true, autofocus: true %>
   </div>
-
   <div class="form-actions">
     <%= f.button :submit, "Register" %>
   </div>
 <% end %>
-<p>Already have an account? <%= render "devise/shared/links" %>
-</div>
+<p>Already have an account? <%= render "devise/shared/links" %></p>
 </div>

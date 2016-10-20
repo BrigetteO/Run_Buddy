@@ -15,7 +15,7 @@
  *= require simple_calendar
  *= require hover
  */
-body, h1, h3, p, span {
+h1, h3, p, span {
   font:'Trebuchet MS', serif;
   color: #000066;
 }
@@ -26,15 +26,20 @@ input.optional {
   font-size: 18px;
   border: none;
   font: 18px 'Trebuchet MS', serif;
-  margin: 20px;
+  margin: 10px 0 10px 0;
+  display: inline;
+}
+input.boolean.optional {
+  margin: 0;
 }
 input.required {
   padding: 10px;
-  font-size: 1.5em;
+  font-size: 1.2em;
   border-radius: 8px;
   border: none;
   font-family: 'Trebuchet MS', serif;
   margin: 10px 5px 20px 5px;
+  display: inline;
 }
 textarea{
   border-radius: 8px;
@@ -43,28 +48,40 @@ textarea{
 }
 label.required {
   padding-top: 14px;
-  font-size: 1.5em;
+  font-size: 1.2em;
   font-family: 'Trebuchet MS', serif;
   margin: 10px 5px 10px 5px;
   color: #000066;
 }
 label.checkbox {
-  font-size: 1.2em;
   font-family: 'Trebuchet MS', serif;
   color: #000066;
+  display: inline;
+  font-weight: normal;
 }
-.radio label {
-  font-size: 1.5em;
-  font-family: 'Trebuchet MS', serif;
-  color: #000066;
-  margin: 0 5px 0 5px;
+.checkbox input[type=checkbox]{
+  position: relative;
+}
+input#user_remember_me {
+  vertical-align: middle;
   display: inline;
 }
+span.radio {
+  display: inline;
+  padding: 10px;
+}
+span.radio label {
+  font-size: 1.2em;
+  display: inline;
+  font-family: 'Trebuchet MS', serif;
+  color: #000066;
+}
 select.select.required {
-  font-size: 1.5em;
+  font-size: 1.2em;
   font-family: 'Trebuchet MS', serif;
   background-color: rgba(255,255,255, 0.5);
   border: none;
+  padding: 5px;
   color: #000066;
 }
 .form-actions input.btn {
@@ -79,7 +96,7 @@ select.select.required {
   border: none;
   color: #000066;
   font-family: 'Trebuchet MS', serif;
-  margin: 40px 5px 20px 5px;
+  margin: 20px 5px 20px 5px;
 }
 
 /*Home*/
@@ -95,44 +112,48 @@ select.select.required {
   color: #000066;
   font-family: 'Trebuchet MS', serif;
 }
-.button-space {
-  margin: 20px;
-}
-
 /*Top Nav*/
-.navbar .navbar-nav {
+div.navbar {
+  background: rgba(10,10,100, 0.6);
+  border-radius: 8px;
+  height: 60px;
+  margin: 0 auto;
+}
+.navbar-nav {
   display: inline-block;
+  width: 100%;
 }
 nav ul {
   list-style-type: none;
-  background: rgba(10,10,100, 0.6);
   border-radius: 8px;
+  height: 60px;
+  margin: 0 auto;
 }
-nav a{
+nav a {
   float: right;
   display: inline;
   text-decoration: none;
   font-size: 1.2em;
   color: #c2d6d6;
+  padding: 22px;
 }
 nav a:hover {
   background: #327C6E !important;
   border-radius: 8px
 }
-
 #greeting {
   float: left;
   color: #c2d6d6;
-  padding: 10px 15px;
+  padding: 10px 30px;
   font-size: 1.2em;
   display: inline;
 }
 /*Index*/
 .container {
+  margin-top: 5%;
   background-color: rgba(255,255,255, 0.5);
   color: inherit;
   border-radius: 8px;
-  padding: 5%;
   text-align: center;
 }
 .run-index {
