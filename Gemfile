@@ -31,11 +31,11 @@ gem 'devise'
 gem 'pry-rails'
 gem 'simple_form'
 gem 'country_select'
-gem "simple_calendar", "~> 2.0"
 gem 'will_paginate'
 gem 'chosen-rails'
 gem 'hover-rails'
 gem 'jquery-ui-rails'
+gem 'simple_calendar'
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development

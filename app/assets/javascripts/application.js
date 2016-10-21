@@ -12,7 +12,6 @@
 //
 //= require jquery
 //= require chosen-jquery
-//= require jquery_ujs
 //= require jquery-ui
 //= require turbolinks
 //= require_tree .
@@ -29,5 +28,6 @@ $(document).on('turbolinks:load', function() {
     $(this).addClass('current');
     $("#"+tab_id).addClass('current');
   });
+
 
 });

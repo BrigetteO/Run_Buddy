@@ -7,7 +7,6 @@ class User < ApplicationRecord
 
   has_many :runs
   has_many :comments, through: :runs
-  has_many :conversations
   has_many :received_messages, class_name: :Message, foreign_key: :recipient_id
   has_many :sent_messages, class_name: :Message, foreign_key: :sender_id
 

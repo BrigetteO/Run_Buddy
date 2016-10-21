@@ -2,6 +2,7 @@
 
 Rails.application.routes.draw do
   get 'profiles/:id', to: 'profiles#show', as: 'profile'
+  get 'events', to:'events#index'
 
   resources :runs do
     resources :comments, except: :index
