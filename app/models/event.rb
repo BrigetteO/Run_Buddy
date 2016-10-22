@@ -1,9 +1,5 @@
 class Event < ApplicationRecord
-  validates :date, :time, :name, presence: true
-
-  def start_time
-    self.created_at
-  end
+  validates :start_time, :location, :name, presence: true
 
   def convert_time
     self.time.strftime('%H:%M %p')

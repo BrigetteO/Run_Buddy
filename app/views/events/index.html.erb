@@ -1,6 +1,9 @@
 <%= render 'calendar_nav' %>
 <div class="container">
-<%= month_calendar do |date| %>
-  <%= date.strftime('%d') %>
+<%= month_calendar events: @events do |date, events| %>
+  <%= date.strftime('%d') %><br>
+  <% events.each do |event| %>
+  <%= event.name %><br>
+  <% end %>
 <% end %>
 </div>
