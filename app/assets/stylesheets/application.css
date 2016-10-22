@@ -101,7 +101,12 @@ select.select.required {
   font-family: 'Trebuchet MS', serif;
   margin: 20px 5px 20px 5px;
 }
-
+tr {
+  color: #000066;
+  font-family: 'Trebuchet MS', serif;
+  padding-top: 15px;
+  padding-bottom: 15px;
+}
 /*Top Nav*/
 div.navbar {
   background: rgba(10,10,100, 0.6);
@@ -134,7 +139,8 @@ nav a:hover {
 #greeting {
   float: left;
   color: #c2d6d6;
-  padding: 10px 30px;
+  padding-top: 10px;
+  padding-left: 30px;
   font-size: 1.2em;
   display: inline;
 }
@@ -151,13 +157,20 @@ nav a:hover {
   color: #000066;
   font-family: 'Trebuchet MS', serif;
 }
+.button_to input[value="Log Out"] {
+  float: right;
+  padding: 5px;
+  width: 25%;
+  font-size: 1.2em;
+  margin-top: 5px;
+}
 .container {
   margin-top: 5%;
+  padding: 5%;
   background-color: rgba(255,255,255, 0.5);
   color: inherit;
   border-radius: 8px;
   text-align: center;
-  min-height: 300px;
 }
 .run-index {
   padding: 8px;
@@ -173,6 +186,13 @@ nav a:hover {
   font-weight: bold;
 }
 .inline {
+  display: inline;
+}
+.fa-comments {
+  padding-left: 8px;
+  padding-right: 4px;
+}
+form.button_to {
   display: inline;
 }
 .right{

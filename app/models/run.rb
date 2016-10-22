@@ -17,6 +17,10 @@ class Run < ApplicationRecord
     self.time.strftime('%H:%M %p')
   end
 
+  def convert_date_abbr
+    self.date.strftime('%a, %b')
+  end
+
   def convert_date
     self.date.strftime('%a, %b %d')
   end
