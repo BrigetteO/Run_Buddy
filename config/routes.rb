@@ -7,7 +7,7 @@ Rails.application.routes.draw do
     resources :users_events, only: :create
   end 
 
-  resources :runs do
+  resources :runs, except: :show do
     resources :comments, except: :index
     resources :kudos, only: :create 
   end

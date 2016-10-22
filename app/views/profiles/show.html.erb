@@ -33,7 +33,7 @@
                 <td><%= run.title %></td>
                 <td><%= run.location %></td>
                 <td><%= run.miles %></td>
-                <td class="italic"><%= link_to 'Edit', edit_run_path(run) %> | <%= link_to 'Destroy', run, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+                <td class="italic"><%= link_to edit_run_path(run) do %><i class="fa fa-pencil-square-o" aria-hidden="true"></i><% end %>|<%= button_to run_path(run), method: :delete do %><i class="fa fa-trash-o"></i><% end %></td>
               </tr>
             <% end %>
           </tbody>
@@ -69,11 +69,12 @@
       </div>
 
       <div id="tab-4" class="tab-content">
-        <%= month_calendar events: @user_events do |date, events| %>
+        <%= month_calendar events: @events do |date, events| %>
           <%= date.strftime('%d') %><br>
           <% events.each do |event| %>
-          <%= event.name %><br>
-          <%= event.location %><br>
+          <% if @user_events.map(&:event_id).include? event.id %>
+            <div class="calendar"><%= event.name %><br></div>
+          <% end %>
           <% end %>
         <% end %>
       </div>

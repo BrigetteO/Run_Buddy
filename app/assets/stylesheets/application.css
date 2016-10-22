@@ -15,6 +15,9 @@
  *= require simple_calendar
  *= require hover
  */
+ .calendar {
+  font-size: .8em;
+ }
 .button-space {
   padding: 20px 0 20px 0;
 }
@@ -147,7 +150,6 @@ nav a:hover {
 /*Home*/
 .button_to input{
   text-align: center;
-  width: 40%;
   padding: 14px 16px;
   text-decoration: none;
   font-size: 1.5em;
@@ -163,6 +165,13 @@ nav a:hover {
   width: 25%;
   font-size: 1.2em;
   margin-top: 5px;
+}
+.button_to input[value="Delete"] {
+  border: none;
+  background: none;
+  font-size: 1em;
+  padding: 0;
+
 }
 .container {
   margin-top: 5%;
@@ -191,6 +200,14 @@ nav a:hover {
 .fa-comments {
   padding-left: 8px;
   padding-right: 4px;
+}
+.fa-remove {
+  display: inline;
+}
+.fa-pencil-square-o {
+  padding-left: 5px;
+  padding-right: 5px;
+  display: inline;
 }
 form.button_to {
   display: inline;
