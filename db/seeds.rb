@@ -1,5 +1,13 @@
 Dir.chdir(File.dirname(__FILE__))
 
+event_data = Nokogiri::HTML.parse(open("https://www.raceplace.com/city/san-diego-ca/running"))
+event_data.css('div.result__details').each do |item|
+    item = Event.create!(
+      name: item.at_css('div.result__name > a').text.strip,
+      start_time: DateTime.parse(item.at_css('div.result__date-wrap').text.strip),
+      location: item.at_css('div.result__location-wrap').text.strip)
+end
+
 cities = ["Cardiff-by-the-Sea", "Carlsbad", "Del Mar", "Encinitas", "La Jolla", "Oceanside", "Solana Beach", "Leucadia"]
 
 200.times do

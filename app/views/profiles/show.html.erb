@@ -1,10 +1,4 @@
-<nav class="brand">
-  <ul>
-    <li id="greeting">Hi, <%= current_user.first_name %></li>
-    <li class="nav"><%= link_to 'Log Out', destroy_user_session_path, method: :delete %></li>
-    <li class="nav"><%= link_to runs_path do %><i class="fa fa-home" aria-hidden="true"></i><% end %></li>
-  </ul>
-</nav>
+<%= render 'profile_nav' %>
 
   <div class="tab-body">
     <div class="tab-container">
@@ -19,7 +13,7 @@
 
       <div id="tab-1" class="tab-content current">
         <% if @user.runs.empty? %>
-          <p>You haven't logged any runs yet!</p>
+          <span>You haven't logged any runs yet!</span>
         <% else %>
         <table>
           <thead>
@@ -48,16 +42,15 @@
 
       <div id="tab-2" class="tab-content">
         <% if @user.find_buddies.empty? %>
-          <p>You don't have any buddies yet!</p>
+          <span>You don't have any buddies yet!</span>
         <% else %>
           <% @user.find_buddies.each do |buddy| %>
-            <span><%= buddy.first_name %> is available in the <%= buddy.availability %> for <%= buddy.run_pref %> runs!</span><br>
-            <span class="inline italic"><%= buddy.user_name %></span> |
+            <span><%= buddy.user_name %> is available in the <%= buddy.availability %> for <%= buddy.run_pref %> runs!</span><br>
             <span class="inline italic"><%= buddy.city %></span> |
             <span class="inline italic"><%= buddy.gender.capitalize %></span> |
             <span class="inline italic"><%= buddy.age %> yrs old</span> |
-            <span class="inline italic"><%= buddy.pace %>:00 min/mile</span> |
-            <span class="inline italic"><%= link_to new_user_message_path(buddy.id) do %><i class="fa fa-envelope" aria-hidden="true"></i><% end %></span>
+            <span class="inline italic"><%= buddy.pace %>:00 min/mi</span> | 
+            <span class="inline italic"><%= link_to new_user_message_path(buddy.id) do %><i class="fa fa-envelope" aria-hidden="true"></i><% end %> Send Message</span>
            <br><br>
           <% end %>
         <% end %>
@@ -65,14 +58,11 @@
 
       <div id="tab-3" class="tab-content">
         <% if @user.received_messages.empty? %>
-          <p>You don't have any messages yet!</p>
+          <span>You don't have any messages yet!</span>
         <% else %>
           <% @user.received_messages.each do |message| %>
-            <h3><%= message.title %></h3>
-            <p><%= message.content %></p>
-            <span class="inline italic"><%= message.sender.user_name %></span> |
-            <span class="inline italic"><%= message.message_time %></span> |
-            <span class="inline italic"><%= link_to new_user_message_path(message.sender_id) do %><i class="fa fa-envelope" aria-hidden="true"></i><% end %></span>
+            <span class="bold"><%= message.title %></span><br>
+            <%= render 'messages/show', message: message %>
           <% end %>
         <% end %>
       </div>

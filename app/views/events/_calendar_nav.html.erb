@@ -1,0 +1,9 @@
+<nav>
+  <div class="navbar">
+    <ul class="nav navbar-nav">
+      <li><%= link_to 'Log Out', destroy_user_session_path,method: "delete", controller: "users/sessions" %></li>
+      <li><%= link_to 'Profile', profile_path(current_user) %></li>
+      <li><%= link_to 'Home', runs_path %></li>
+    </ul>
+  </div>
+</nav>

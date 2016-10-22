@@ -1,21 +1,17 @@
-<div class="collapse navbar-collapse">
-  <ul class="nav navbar-nav nav-pills">
-    <li id="greeting">Hi, <%= current_user.first_name %></li>
-    <li><%= link_to 'Log Out', destroy_user_session_path, method: :delete %></li>
-    <li><%= link_to('Profile', profile_path(current_user)) %></li>
-  </ul>
-</div>
+<%= render 'home_nav' %>
 
-  <div class="container">
+<div class="container">
     <% @runs.each do |run| %>
       <div class="run-index">
-        <h3><%= run.title %></h3>
-        <span class="italic"><%= run.user.user_name %></span> |
-        <span class="italic"><%= run.comments.count %> comments</span  >
-        <span class="italic"><%= link_to new_run_comment_path(run) do %><i class="fa fa-comments" aria-hidden="true"></i><% end %></span> |
-        <span class="italic"><%= run.kudos.count %> kudos</span>
-        <span class="italic"><%= link_to run_kudos_path(run), method: :post do %><i class="fa fa-thumbs-up" aria-hidden="true"></i><% end %></span>
+        <div class="run-top">
+          <span class="left bold"><%= run.title %></span>
+          <span class="right italic"><%= run.user.user_name %></span><br>
+        </div>
+        <span class="inline italic"><%= run.comments.count %> comments</span  >
+        <span class="inline italic"><%= link_to new_run_comment_path(run) do %><i class="fa fa-comments" aria-hidden="true"></i><% end %></span> |
+        <span class="inline italic"><%= run.kudos.count %> kudos</span>
+        <span class="inline italic"><%= link_to run_kudos_path(run), method: :post do %><i class="fa fa-thumbs-up" aria-hidden="true"></i><% end %></span>
       </div>
     <% end %>
     <%= will_paginate @runs %>
-  </div>
+</div>

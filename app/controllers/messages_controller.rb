@@ -3,8 +3,11 @@ class MessagesController < ApplicationController
  
   def new
     @message = Message.new(recipient_id: params[:user_id])
-
   end
+
+  def show
+    message = Message.find(params[:id])
+  end 
 
   def create
     @message = Message.new(message_params)
