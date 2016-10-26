@@ -16,35 +16,24 @@ class CommentsController < ApplicationController
     @comment.user_id = current_user.id
     @comment.run_id = params[:run_id]
 
-    respond_to do |format|
-      if @comment.save
-        format.html { redirect_to runs_path }
-        format.json { render :show, status: :created, location: @comment }
-      else
-        format.html { render :new }
-        format.json { render json: @comment.errors, status: :unprocessable_entity }
-      end
+    if @comment.save
+      redirect_to runs_path
+    else
+      render :new
     end
   end
 
   def update
-    respond_to do |format|
-      if @comment.update(comment_params)
-        format.html { redirect_to @comment, notice: 'Comment updated!' }
-        format.json { render :show, status: :ok, location: @comment }
-      else
-        format.html { render :edit }
-        format.json { render json: @comment.errors, status: :unprocessable_entity }
-      end
+    if @comment.update(comment_params)
+      redirect_to @comment, notice: 'Comment updated!'
+    else
+      render :edit
     end
   end
 
   def destroy
     @comment.destroy
-    respond_to do |format|
-      format.html { redirect_to comments_url, notice: 'Comment deleted!' }
-      format.json { head :no_content }
-    end
+    redirect_to runs_path, notice: 'Comment deleted!'
   end
 
  private

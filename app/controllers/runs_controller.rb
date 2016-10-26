@@ -1,11 +1,8 @@
 class RunsController < ApplicationController
-  before_action :set_run, only: [:show, :edit, :update, :destroy]
+  before_action :set_run, only: [:edit, :update, :destroy]
 
   def index
     @runs = Run.paginate(page: params[:page], per_page: 8)
-  end
-
-  def show
   end
 
   def new
@@ -18,30 +15,23 @@ class RunsController < ApplicationController
   def create
     @run = current_user.runs.build(run_params)
     if @run.save
-      redirect_to @run
+      redirect_to profile_path(current_user)
     else
       render :new
     end
   end
 
   def update
-    respond_to do |format|
-      if @run.update(run_params)
-        format.html { redirect_to @run, notice: 'Run was successfully updated.' }
-        format.json { render :show, status: :ok, location: @run }
-      else
-        format.html { render :edit }
-        format.json { render json: @run.errors, status: :unprocessable_entity }
-      end
+    if @run.update(run_params)
+      redirect_to profile_path(current_user), notice: 'Run was successfully updated.' 
+    else
+      render :edit
     end
   end
 
   def destroy
     @run.destroy
-    respond_to do |format|
-      format.html { redirect_to runs_url, notice: 'Run was successfully destroyed.' }
-      format.json { head :no_content }
-    end
+    redirect_to profile_path(current_user), notice: 'Run was successfully destroyed.' 
   end
 
   private

@@ -3,11 +3,12 @@
   <div class="tab-body">
     <div class="tab-container">
       <ul class="tabs">
-        <li class="tab-link current" data-tab="tab-1">My Activities</li>
-        <li class="tab-link" data-tab="tab-2">My Buddies</li>
-        <li class="tab-link" data-tab="tab-3">My Messages</li>
+        <li class="tab-link current" data-tab="tab-1">Activities</li>
+        <li class="tab-link" data-tab="tab-2">Buddies</li>
+        <li class="tab-link" data-tab="tab-3">Messages</li>
+        <li class="tab-link" data-tab="tab-4">Events</li>
         <% if @user.run_pref == "beach" %>
-        <li class="tab-link" data-tab="tab-4">Check the Tides</li>
+        <li class="tab-link" data-tab="tab-5">Tides</li>
         <% end %>
       </ul>
 
@@ -28,11 +29,11 @@
           <tbody>
             <% @user.runs.each do |run| %>
               <tr>
-                <td><%= run.convert_date %></td>
+                <td><%= run.convert_date_abbr %> <%= run.convert_time %></td>
                 <td><%= run.title %></td>
                 <td><%= run.location %></td>
                 <td><%= run.miles %></td>
-                <td><%= link_to 'Show', run %> | <%= link_to 'Edit', edit_run_path(run) %> | <%= link_to 'Destroy', run, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+                <td class="italic"><%= link_to edit_run_path(run) do %><i class="fa fa-pencil-square-o" aria-hidden="true"></i><% end %>|<%= button_to run_path(run), method: :delete do %><i class="fa fa-trash-o" aria-hidden="true"></i><% end %></td>
               </tr>
             <% end %>
           </tbody>
@@ -50,7 +51,7 @@
             <span class="inline italic"><%= buddy.gender.capitalize %></span> |
             <span class="inline italic"><%= buddy.age %> yrs old</span> |
             <span class="inline italic"><%= buddy.pace %>:00 min/mi</span> | 
-            <span class="inline italic"><%= link_to new_user_message_path(buddy.id) do %><i class="fa fa-envelope" aria-hidden="true"></i><% end %> Send Message</span>
+            <span class="inline italic"><%= link_to new_user_message_path(buddy.id) do %><i class="fa fa-envelope" aria-hidden="true"></i><% end %></span>
            <br><br>
           <% end %>
         <% end %>
@@ -68,6 +69,17 @@
       </div>
 
       <div id="tab-4" class="tab-content">
+        <%= month_calendar events: @events do |date, events| %>
+          <%= date.strftime('%d') %><br>
+          <% events.each do |event| %>
+          <% if @user_events.map(&:event_id).include? event.id %>
+            <div class="calendar"><%= event.name %><br></div>
+          <% end %>
+          <% end %>
+        <% end %>
+      </div>
+
+      <div id="tab-5" class="tab-content">
         <% if @user.run_pref == "beach" %>
          <%= render 'tides' %>
         <% end %>

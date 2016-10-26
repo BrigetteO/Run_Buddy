@@ -1,9 +1,12 @@
 <%= render 'calendar_nav' %>
 <div class="container">
-<%= month_calendar events: @events do |date, events| %>
-  <%= date.strftime('%d') %><br>
-  <% events.each do |event| %>
+
+<h1><%=DateTime.now.strftime("%B %Y")%></h1>
+<%= @events.each do |event| %>
+  <%= event.convert_start_time_to_date %> @
+  <%= event.convert_start_time_to_time %><br>
   <%= event.name %><br>
+  <%= event.location %><br>
+  <%= button_to event_users_events_path(event) do %><i class="fa fa-calendar-plus-o" aria-hidden="true"></i><% end %><br><br>
   <% end %>
-<% end %>
 </div>

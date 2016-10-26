@@ -15,6 +15,9 @@
  *= require simple_calendar
  *= require hover
  */
+ .calendar {
+  font-size: .8em;
+ }
 .button-space {
   padding: 20px 0 20px 0;
 }
@@ -101,7 +104,12 @@ select.select.required {
   font-family: 'Trebuchet MS', serif;
   margin: 20px 5px 20px 5px;
 }
-
+tr {
+  color: #000066;
+  font-family: 'Trebuchet MS', serif;
+  padding-top: 15px;
+  padding-bottom: 15px;
+}
 /*Top Nav*/
 div.navbar {
   background: rgba(10,10,100, 0.6);
@@ -134,14 +142,14 @@ nav a:hover {
 #greeting {
   float: left;
   color: #c2d6d6;
-  padding: 10px 30px;
+  padding-top: 10px;
+  padding-left: 30px;
   font-size: 1.2em;
   display: inline;
 }
 /*Home*/
 .button_to input{
   text-align: center;
-  width: 40%;
   padding: 14px 16px;
   text-decoration: none;
   font-size: 1.5em;
@@ -151,13 +159,25 @@ nav a:hover {
   color: #000066;
   font-family: 'Trebuchet MS', serif;
 }
+.button_to input[value="Log Out"] {
+  float: right;
+  padding: 5px;
+  font-size: 1.2em;
+  margin-top: 5px;
+}
+.button_to input[value="Delete"] {
+  border: none;
+  background: none;
+  font-size: 1em;
+  padding: 0;
+}
 .container {
   margin-top: 5%;
+  padding: 5%;
   background-color: rgba(255,255,255, 0.5);
   color: inherit;
   border-radius: 8px;
   text-align: center;
-  min-height: 300px;
 }
 .run-index {
   padding: 8px;
@@ -174,6 +194,25 @@ nav a:hover {
 }
 .inline {
   display: inline;
+}
+.fa-comments {
+  padding-left: 8px;
+  padding-right: 4px;
+}
+.fa-remove {
+  display: inline;
+}
+.fa-pencil-square-o {
+  padding-left: 5px;
+  padding-right: 5px;
+  display: inline;
+}
+.fa-trash-o {
+  display: inline;
+}
+form.button_to {
+  display: inline;
+  color: red;
 }
 .right{
   float: right;
