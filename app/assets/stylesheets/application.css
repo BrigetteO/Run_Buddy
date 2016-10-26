@@ -162,7 +162,6 @@ nav a:hover {
 .button_to input[value="Log Out"] {
   float: right;
   padding: 5px;
-  width: 25%;
   font-size: 1.2em;
   margin-top: 5px;
 }
@@ -171,7 +170,6 @@ nav a:hover {
   background: none;
   font-size: 1em;
   padding: 0;
-
 }
 .container {
   margin-top: 5%;
@@ -209,8 +207,12 @@ nav a:hover {
   padding-right: 5px;
   display: inline;
 }
+.fa-trash-o {
+  display: inline;
+}
 form.button_to {
   display: inline;
+  color: red;
 }
 .right{
   float: right;

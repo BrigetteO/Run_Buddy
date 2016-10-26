@@ -1,24 +1,3 @@
-# README
+#Run Buddy
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
-
-Things you may want to cover:
-
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+Run Buddy is a social networking platform for connecting running enthusiasts based on multiple parameters (e.g., availability, pace and location). Users can message matches, log runs and create a custom personalized calendar of local running races and events.
