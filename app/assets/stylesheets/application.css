@@ -25,7 +25,7 @@ h1, h3, p, span {
   font:'Trebuchet MS', serif;
   color: #000066;
 }
-input.optional {
+input.optional, input.required {
   padding: 5px;
   margin: 5px;
   border-radius: 8px;
@@ -35,19 +35,6 @@ input.optional {
 }
 input.boolean.optional {
   margin: 0;
-}
-input.required {
-  padding: 5px;
-  margin: 5px;
-  border-radius: 8px;
-  border: none;
-  font-family: 'Trebuchet MS', serif;
-}
-.input.run_title {
-  display: inline;
-}
-.input.run_location {
-  display: inline;
 }
 textarea{
   padding:10px;
@@ -72,21 +59,6 @@ select.required {
   color: #000066;
   display: inline;
 }
-input.btn[name="commit"] {
-  background: #C7DD95;
-  margin: 10px;
-}
-a[value="Cancel"] {
-  color: red;
-}
-/*select.select.required {
-  padding: 5px;
-  margin: 5px;
-  font-family: 'Trebuchet MS', serif;
-  background: white;
-  border: none;
-  color: #000066;
-}*/
 label.checkbox {
   font-family: 'Trebuchet MS', serif;
   color: #000066;
@@ -166,6 +138,11 @@ nav a:hover {
   border: none;
   font-family: 'Trebuchet MS', serif;
 }
+input.btn[name="commit"] {
+  background: #C7DD95;
+  color: #000066;
+  margin: 10px;
+}
 .button_to input[value="Log Out"] {
   float: right;
   padding: 5px;
@@ -180,12 +157,6 @@ nav a:hover {
   background: none;
   font-size: 1em;
   padding: 0;
-}
-.form-actions input[value="Submit"] {
-  font-size: 1em;
-  margin: 10px;
-  color: #000066;
-  background: #C7DD95;
 }
 .container {
   margin-top: 5%;
