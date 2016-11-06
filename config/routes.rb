@@ -8,7 +8,7 @@ Rails.application.routes.draw do
   end 
 
   resources :runs, except: :show do
-    resources :comments, except: :index
+    resources :comments
     resources :kudos, only: :create 
   end
 

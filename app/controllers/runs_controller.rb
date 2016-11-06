@@ -7,6 +7,9 @@ class RunsController < ApplicationController
 
   def new
     @run = Run.new
+    respond_to do |format|
+      format.html { render layout: !request.xhr? }
+    end
   end
 
   def edit

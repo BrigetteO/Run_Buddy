@@ -15,7 +15,7 @@
  *= require simple_calendar
  *= require hover
  */
- .calendar {
+.calendar {
   font-size: .8em;
  }
 .button-space {
@@ -25,39 +25,39 @@ h1, h3, p, span {
   font:'Trebuchet MS', serif;
   color: #000066;
 }
-input.optional {
-  padding: 10px;
-  font-size: 1.5em;
+input.optional, input.required {
+  padding: 5px;
+  margin: 5px;
   border-radius: 8px;
-  font-size: 18px;
   border: none;
-  font: 18px 'Trebuchet MS', serif;
-  margin: 10px 0 10px 0;
+  font: 'Trebuchet MS', serif;
   display: inline;
 }
 input.boolean.optional {
   margin: 0;
 }
-input.required {
-  padding: 10px;
-  font-size: 1.2em;
-  border-radius: 8px;
-  border: none;
-  font-family: 'Trebuchet MS', serif;
-  margin: 10px 5px 20px 5px;
-  display: inline;
-}
 textarea{
+  padding:10px;
   border-radius: 8px;
   border: none;
-  padding:10px;
 }
 label.required {
-  padding-top: 14px;
-  font-size: 1.2em;
+  margin: 5px;
   font-family: 'Trebuchet MS', serif;
-  margin: 10px 5px 10px 5px;
   color: #000066;
+  display: inline;
+}
+label.required abbr {
+  display: none;
+}
+select.required {
+  padding: 5px;
+  margin: 5px;
+  font-family: 'Trebuchet MS', serif;
+  background: white;
+  border: none;
+  color: #000066;
+  display: inline;
 }
 label.checkbox {
   font-family: 'Trebuchet MS', serif;
@@ -81,28 +81,6 @@ span.radio label {
   display: inline;
   font-family: 'Trebuchet MS', serif;
   color: #000066;
-}
-select.select.required {
-  font-size: 1.2em;
-  font-family: 'Trebuchet MS', serif;
-  background-color: rgba(255,255,255, 0.5);
-  border: none;
-  padding: 5px;
-  color: #000066;
-}
-.form-actions input.btn {
-  text-align: center;
-  width: 40%;
-  padding: 14px 16px;
-  text-decoration: none;
-  font-size: 1.5em;
-  font-weight: bold;
-  background-color: rgba(199,221,149, 0.6);
-  border-radius: 8px;
-  border: none;
-  color: #000066;
-  font-family: 'Trebuchet MS', serif;
-  margin: 20px 5px 20px 5px;
 }
 tr {
   color: #000066;
@@ -148,25 +126,34 @@ nav a:hover {
   display: inline;
 }
 /*Home*/
-.button_to input{
+.button_to input.btn {
+  font-weight: bold;
   text-align: center;
   padding: 14px 16px;
   text-decoration: none;
   font-size: 1.5em;
   background: #C7DD95;
+  color: #000066;
   border-radius: 8px;
   border: none;
-  color: #000066;
   font-family: 'Trebuchet MS', serif;
+}
+input.btn[name="commit"] {
+  background: #C7DD95;
+  color: #000066;
+  margin: 10px;
 }
 .button_to input[value="Log Out"] {
   float: right;
   padding: 5px;
   font-size: 1.2em;
   margin-top: 5px;
+  background: #C7DD95;
+  color: #000066;
+  border-radius: 8px;
+  border: none;
 }
 .button_to input[value="Delete"] {
-  border: none;
   background: none;
   font-size: 1em;
   padding: 0;
@@ -212,7 +199,6 @@ nav a:hover {
 }
 form.button_to {
   display: inline;
-  color: red;
 }
 .right{
   float: right;
@@ -220,7 +206,9 @@ form.button_to {
 .left {
   float: left;
 }
-
+.comments-list li {
+  list-style: none;
+}
 /*TABS*/
 .tab-body{
       margin-top: 40px;

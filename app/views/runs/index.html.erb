@@ -7,9 +7,9 @@
           <span class="left bold"><%= run.title %></span>
           <span class="right italic"><%= run.user.user_name %></span><br>
         </div>
-        <span class="inline italic"><%= run.comments.count %> comments</span  >
-        <span class="inline italic"><%= link_to new_run_comment_path(run) do %><i class="fa fa-comments" aria-hidden="true"></i><% end %></span> |
-        <span class="inline italic"><%= run.kudos.count %> kudos</span>
+        <span class="inline italic show-comment"><span class="comments"><%= run.comments.count %></span><%= link_to ' comments', run_comments_path(run)%></span>
+        <span class="inline italic new-comment"><%= link_to new_run_comment_path(run) do %><i class="fa fa-comments" aria-hidden="true"></i><% end %></span> |
+        <span class="inline italic"><span class="kudos"><%= run.kudos.count %></span> kudos</span>
         <span class="inline italic"><%= button_to run_kudos_path(run) do %><i class="fa fa-thumbs-up" aria-hidden="true"></i><% end %></span>
       </div>
     <% end %>
