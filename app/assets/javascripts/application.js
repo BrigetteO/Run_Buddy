@@ -18,16 +18,16 @@
 
 $(document).on('turbolinks:load', function() {
 
-  // $('body').on('click', 'ul.tabs li', function(){
-  // 	console.log("What the fuck");
-  //   var tab_id = $(this).attr('data-tab');
+  $('body').on('click', 'ul.tabs li', function(){
+  	console.log("What the fuck");
+    var tab_id = $(this).attr('data-tab');
 
-  //   $('ul.tabs li').removeClass('current');
-  //   $('.tab-content').removeClass('current');
+    $('ul.tabs li').removeClass('current');
+    $('.tab-content').removeClass('current');
 
-  //   $(this).addClass('current');
-  //   $("#"+tab_id).addClass('current');
-  // });
+    $(this).addClass('current');
+    $("#"+tab_id).addClass('current');
+  });
 
   $('.container').on('click', '.fa-thumbs-up', function(event){
   	event.preventDefault();
