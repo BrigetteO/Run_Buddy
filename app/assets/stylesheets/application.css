@@ -15,7 +15,7 @@
  *= require simple_calendar
  *= require hover
  */
- .calendar {
+.calendar {
   font-size: .8em;
  }
 .button-space {
@@ -161,7 +161,7 @@ nav a:hover {
   font-size: 1em;
   padding: 0;
 }
-.form-actions input.btn[value="Submit"] {
+.form-actions input[value="Submit"] {
   font-size: 1em;
   margin: 10px;
   color: #000066;
@@ -215,7 +215,9 @@ form.button_to {
 .left {
   float: left;
 }
-
+.comments-list li {
+  list-style: none;
+}
 /*TABS*/
 .tab-body{
       margin-top: 40px;

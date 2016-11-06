@@ -1,5 +1,5 @@
-<% @run.comments.each do |comment| %>
-  <p><%= comment.content %></p>
+<ul class="comments-list">
+  <% @run.comments.each do |comment| %>
+  <li><%= comment.content %></li>
 <% end %>
-
-<div class="close"><%= link_to 'Hide'%></div>
+</ul>

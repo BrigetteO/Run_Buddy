@@ -19,7 +19,6 @@
 $(document).on('turbolinks:load', function() {
 
   $('body').on('click', 'ul.tabs li', function(){
-  	console.log("What the fuck");
     var tab_id = $(this).attr('data-tab');
 
     $('ul.tabs li').removeClass('current');
@@ -48,7 +47,6 @@ $(document).on('turbolinks:load', function() {
   	event.preventDefault();
   	var new_comment = $(this)
     var url = $(this).closest('a').attr('href');
-    console.log(url)
     $.ajax({
       method: 'GET',
       url: url,
@@ -59,22 +57,19 @@ $(document).on('turbolinks:load', function() {
     });
   });
 
-  $('.container').on('click', 'a', function(event){
+  $('.container').on('click', '.show-comment a', function(event){
     event.preventDefault();
     var comments = $(this)
     var url = $(this).attr('href');
-    console.log(url)
     $.ajax({
       method: 'GET',
       url: url,
       dataType: 'HTML',
       success: function(response){
-        comments.closest('.run-index').append(response)
+        comments.closest('.run-index').append(response);
+        $('.comments-list').find('li:last').after('<p><u><strong><a id="close" href="">Close</a></strong></u></p>');
       }
     });
   });
-  
-  $('.container').on('click', '.close', function(event){
-    $(this).hide();
-  })
+
 });
