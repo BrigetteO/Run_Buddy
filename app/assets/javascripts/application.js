@@ -39,7 +39,6 @@ $(document).on('turbolinks:load', function() {
       dataType: 'JSON',
       beforeSend: function(xhr) {xhr.setRequestHeader('X-CSRF-Token', $('meta[name="csrf-token"]').attr('content'))},
       success: function(response){
-        console.log(response.kudos)
         form.closest('.run-index').find('.kudos').html(response.kudos)
       }
     });
@@ -47,16 +46,15 @@ $(document).on('turbolinks:load', function() {
 
   $('.container').on('click', '.fa-comments', function(event){
   	event.preventDefault();
-    var form = $(this).closest('form');
-    var url = form.attr('action');
+  	var new_comment = $(this)
+    var url = $(this).closest('a').attr('href');
+    console.log(url)
     $.ajax({
-      method: 'POST',
+      method: 'GET',
       url: url,
-      dataType: 'JSON',
-      beforeSend: function(xhr) {xhr.setRequestHeader('X-CSRF-Token', $('meta[name="csrf-token"]').attr('content'))},
+      dataType: 'HTML',
       success: function(response){
-        console.log(response.kudos)
-        form.closest('.run-index').find('.kudos').html(response.kudos)
+        new_comment.closest('.run-index').append(response)
       }
     });
   });

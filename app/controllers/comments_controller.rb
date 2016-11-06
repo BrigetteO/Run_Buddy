@@ -6,6 +6,9 @@ class CommentsController < ApplicationController
 
   def new
     @comment = Comment.new
+    respond_to do |format|
+      format.html { render layout: !request.xhr? }
+    end
   end
 
   def edit
@@ -15,7 +18,6 @@ class CommentsController < ApplicationController
     @comment = Comment.new(comment_params)
     @comment.user_id = current_user.id
     @comment.run_id = params[:run_id]
-
     if @comment.save
       redirect_to runs_path
     else
