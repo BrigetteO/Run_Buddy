@@ -2,9 +2,11 @@
   <%= f.error_notification %>
 
   <div class="form-inputs">
+    <span class="first-row">
     <%= f.input :title, label: false, required: true, autofocus: true %>
     <%= f.input :location, label: false, required: true, autofocus: true %>
     <%= f.input :miles, label: false, required: true, autofocus: true %>
+  </span>
     <%= f.input :date, required: true, autofocus: true %>
     <%= f.input :time, required: true, autofocus: true %>
   </div>

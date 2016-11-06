@@ -72,4 +72,18 @@ $(document).on('turbolinks:load', function() {
     });
   });
 
+  $('body').on('click', '.fa-plus', function(event){
+    event.preventDefault();
+    var new_run = $(this)
+    var url = $(this).closest('a').attr('href');
+    $.ajax({
+      method: 'GET',
+      url: url,
+      dataType: 'HTML',
+      success: function(response){
+        new_run.closest('nav').append(response)
+      }
+    });
+  });
+
 });

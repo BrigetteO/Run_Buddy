@@ -26,39 +26,67 @@ h1, h3, p, span {
   color: #000066;
 }
 input.optional {
-  padding: 10px;
-  font-size: 1.5em;
+  padding: 5px;
+  margin: 5px;
   border-radius: 8px;
-  font-size: 18px;
   border: none;
-  font: 18px 'Trebuchet MS', serif;
-  margin: 10px 0 10px 0;
+  font: 'Trebuchet MS', serif;
   display: inline;
 }
 input.boolean.optional {
   margin: 0;
 }
 input.required {
-  padding: 10px;
-  font-size: 1.2em;
+  padding: 5px;
+  margin: 5px;
   border-radius: 8px;
   border: none;
   font-family: 'Trebuchet MS', serif;
-  margin: 10px 5px 20px 5px;
+}
+.input.run_title {
+  display: inline;
+}
+.input.run_location {
   display: inline;
 }
 textarea{
+  padding:10px;
   border-radius: 8px;
   border: none;
-  padding:10px;
 }
 label.required {
-  padding-top: 14px;
-  font-size: 1.2em;
+  margin: 5px;
   font-family: 'Trebuchet MS', serif;
-  margin: 10px 5px 10px 5px;
   color: #000066;
+  display: inline;
 }
+label.required abbr {
+  display: none;
+}
+select.required {
+  padding: 5px;
+  margin: 5px;
+  font-family: 'Trebuchet MS', serif;
+  background: white;
+  border: none;
+  color: #000066;
+  display: inline;
+}
+input.btn[name="commit"] {
+  background: #C7DD95;
+  margin: 10px;
+}
+a[value="Cancel"] {
+  color: red;
+}
+/*select.select.required {
+  padding: 5px;
+  margin: 5px;
+  font-family: 'Trebuchet MS', serif;
+  background: white;
+  border: none;
+  color: #000066;
+}*/
 label.checkbox {
   font-family: 'Trebuchet MS', serif;
   color: #000066;
@@ -80,14 +108,6 @@ span.radio label {
   font-size: 1.2em;
   display: inline;
   font-family: 'Trebuchet MS', serif;
-  color: #000066;
-}
-select.select.required {
-  font-size: 1.2em;
-  font-family: 'Trebuchet MS', serif;
-  background-color: rgba(255,255,255, 0.5);
-  border: none;
-  padding: 5px;
   color: #000066;
 }
 tr {
