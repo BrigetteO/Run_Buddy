@@ -18,16 +18,32 @@
 
 $(document).on('turbolinks:load', function() {
 
-  $('body').on('click', 'ul.tabs li', function(){
-  	console.log("What the fuck");
-    var tab_id = $(this).attr('data-tab');
+  // $('body').on('click', 'ul.tabs li', function(){
+  // 	console.log("What the fuck");
+  //   var tab_id = $(this).attr('data-tab');
 
-    $('ul.tabs li').removeClass('current');
-    $('.tab-content').removeClass('current');
+  //   $('ul.tabs li').removeClass('current');
+  //   $('.tab-content').removeClass('current');
 
-    $(this).addClass('current');
-    $("#"+tab_id).addClass('current');
-  });
+  //   $(this).addClass('current');
+  //   $("#"+tab_id).addClass('current');
+  // });
+
+  $('.container').on('click', '.fa-thumbs-up', function(event){
+  	event.preventDefault();
+    var form = $(this).closest('form');
+    var url = $(this).closest('form').attr('action');
+    console.log(url)
+    $.ajax({
+      method: 'POST',
+      url: url,
+      dataType: 'JSON',
+      beforeSend: function(xhr) {xhr.setRequestHeader('X-CSRF-Token', $('meta[name="csrf-token"]').attr('content'))}
+      success: (function(response){
+        form.closest('.kudos').text(response.kudos)
+      })
+    })
+  })
 
 
 });
