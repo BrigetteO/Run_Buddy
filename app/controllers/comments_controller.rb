@@ -4,6 +4,9 @@ class CommentsController < ApplicationController
   def index
     @run = Run.find(params[:run_id])
     @comments = Comment.all
+    respond_to do |format|
+      format.html { render layout: !request.xhr? }
+    end
   end 
 
   def show

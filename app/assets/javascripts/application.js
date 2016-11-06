@@ -59,4 +59,22 @@ $(document).on('turbolinks:load', function() {
     });
   });
 
+  $('.container').on('click', 'a', function(event){
+    event.preventDefault();
+    var comments = $(this)
+    var url = $(this).attr('href');
+    console.log(url)
+    $.ajax({
+      method: 'GET',
+      url: url,
+      dataType: 'HTML',
+      success: function(response){
+        comments.closest('.run-index').append(response)
+      }
+    });
+  });
+  
+  $('.container').on('click', '.close', function(event){
+    $(this).hide();
+  })
 });
