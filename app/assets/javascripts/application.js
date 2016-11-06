@@ -32,18 +32,33 @@ $(document).on('turbolinks:load', function() {
   $('.container').on('click', '.fa-thumbs-up', function(event){
   	event.preventDefault();
     var form = $(this).closest('form');
-    var url = $(this).closest('form').attr('action');
-    console.log(url)
+    var url = form.attr('action');
     $.ajax({
       method: 'POST',
       url: url,
       dataType: 'JSON',
-      beforeSend: function(xhr) {xhr.setRequestHeader('X-CSRF-Token', $('meta[name="csrf-token"]').attr('content'))}
-      success: (function(response){
-        form.closest('.kudos').text(response.kudos)
-      })
-    })
-  })
+      beforeSend: function(xhr) {xhr.setRequestHeader('X-CSRF-Token', $('meta[name="csrf-token"]').attr('content'))},
+      success: function(response){
+        console.log(response.kudos)
+        form.closest('.run-index').find('.kudos').html(response.kudos)
+      }
+    });
+  });
 
+  $('.container').on('click', '.fa-comments', function(event){
+  	event.preventDefault();
+    var form = $(this).closest('form');
+    var url = form.attr('action');
+    $.ajax({
+      method: 'POST',
+      url: url,
+      dataType: 'JSON',
+      beforeSend: function(xhr) {xhr.setRequestHeader('X-CSRF-Token', $('meta[name="csrf-token"]').attr('content'))},
+      success: function(response){
+        console.log(response.kudos)
+        form.closest('.run-index').find('.kudos').html(response.kudos)
+      }
+    });
+  });
 
 });
