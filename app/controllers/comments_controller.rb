@@ -1,6 +1,11 @@
 class CommentsController < ApplicationController
   before_action :set_comment, only: [:show, :edit, :update, :destroy]
 
+  def index
+    @run = Run.find(params[:run_id])
+    @comments = Comment.all
+  end 
+
   def show
   end
 
