@@ -2,7 +2,7 @@
 <div class="container">
 
 <h1><%=DateTime.now.strftime("%B %Y")%></h1>
-<%= @events.each do |event| %>
+<%= @events.current_month.each do |event| %>
   <%= event.convert_start_time_to_date %> @
   <%= event.convert_start_time_to_time %><br>
   <%= event.name %><br>
