@@ -126,7 +126,7 @@ nav a:hover {
   display: inline;
 }
 /*Home*/
-.button_to input.btn {
+.button_to input[value="Login"] {
   font-weight: bold;
   text-align: center;
   padding: 14px 16px;
@@ -137,6 +137,20 @@ nav a:hover {
   border-radius: 8px;
   border: none;
   font-family: 'Trebuchet MS', serif;
+  width: 60%;
+}
+.button_to input[value="Register"] {
+  font-weight: bold;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  font-size: 1.5em;
+  background: #C7DD95;
+  color: #000066;
+  border-radius: 8px;
+  border: none;
+  font-family: 'Trebuchet MS', serif;
+  width: 60%;
 }
 input.btn[name="commit"] {
   background: #C7DD95;
