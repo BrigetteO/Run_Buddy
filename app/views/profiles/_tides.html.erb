@@ -1,18 +1,16 @@
+<h3><%= Time.now.strftime('%a, %b %d') %></h3>
+
 <table>
   <tr>
-    <th>Day</th>
-    <th>High</th>
-    <th>Low</th>
+    <th>Time</th>
+    <th>Height</th>
+    <th>H/L</th>
   </tr>
-  <% @tides.current_week.each do |tide| %>
+  <% @tides.current_day.each do |tide| %>
   <tr>
-    <td><%= tide.convert_day %></td>
-    <% if tide.low? %>
-    <td><%= tide.convert_time %>, <%= tide.predictions_in_ft %> ft</td>
-    <% end %>
-    <% if tide.high? %>
-    <td><%= tide.convert_time %>, <%= tide.predictions_in_ft %></td>
-  <% end %>
+    <td><%= tide.convert_time %></td>
+    <td class="center"><%= tide.predictions_in_ft %> ft</td>
+    <td class="center"><%= tide.highlow %></td>
   </tr>
     <% end %>
 </table>

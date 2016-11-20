@@ -28,10 +28,6 @@ class Tide < ApplicationRecord
     self.highlow == "L"
   end
 
-  def grouped_by_date
-    all.group_by(&:date) 
-  end 
-
   def self.calculate_avg
     all.average(:predictions_in_ft).to_i
   end

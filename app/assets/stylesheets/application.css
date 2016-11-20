@@ -288,3 +288,13 @@ span.calendar-title {
   padding-left: 15%;
   padding-right: 15%;
 }
+th {
+  padding: 5px;
+}
+td {
+  padding: 5px;
+  border-top: 1px solid #000066;
+}
+.center {
+  text-align: center;
+}
