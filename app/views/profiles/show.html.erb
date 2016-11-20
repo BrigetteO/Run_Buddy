@@ -33,7 +33,7 @@
                 <td><%= run.title %></td>
                 <td><%= run.location %></td>
                 <td class="center"><%= run.miles %></td>
-                <td class="italic"><%= link_to edit_run_path(run) do %><i class="fa fa-pencil-square-o" aria-hidden="true"></i><% end %>|<%= button_to run_path(run), method: :delete do %><i class="fa fa-trash-o" aria-hidden="true"></i><% end %></td>
+                <td class="italic"><%= link_to edit_run_path(run) do %><i class="fa fa-pencil-square-o" aria-hidden="true"></i><% end %>|<%= button_to run_path(run), {class: "clear"}, method: :delete do %><i class="fa fa-trash-o" aria-hidden="true"></i><% end %></td>
               </tr>
             <% end %>
           </tbody>
