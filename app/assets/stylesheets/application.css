@@ -232,17 +232,17 @@ form.button_to {
       margin: 0 auto;
     }
     ul.tabs{
-      margin: 0px;
-      padding: 0px;
       list-style: none;
       border-radius: 8px;
+      padding: 0px;
+      margin: 0px;
     }
     ul.tabs li{
       background: rgba(10,100,100, 0.5);
       color: #000066;
       display: inline-block;
-      padding: 10px 15px;
       cursor: pointer;
+      padding: 10px;
       border-radius: 8px;
     }
     ul.tabs li.current{
@@ -252,7 +252,7 @@ form.button_to {
     .tab-content{
       display: none;
       background: rgba(255,255,255, 0.5);
-      padding: 10px 15px;
+      padding: 10px;
       min-height: 100px;
     }
     .tab-content.current{
@@ -287,4 +287,14 @@ span.calendar-title {
   font-size: 1.5em;
   padding-left: 15%;
   padding-right: 15%;
+}
+th {
+  padding: 5px;
+}
+td {
+  padding: 5px;
+  border-top: 1px solid #000066;
+}
+.center {
+  text-align: center;
 }

@@ -1,6 +1,6 @@
 Dir.chdir(File.dirname(__FILE__))
 
-event_data = Nokogiri::HTML.parse(open("https://www.raceplace.com/city/san-diego-ca/running"))
+event_data = Nokogiri::HTML.parse(open("https://www.raceplace.com/city/san-diego-ca/running/"))
 event_data.css('div.result__details').each do |item|
     item = Event.create!(
       name: item.at_css('div.result__name > a').text.strip,

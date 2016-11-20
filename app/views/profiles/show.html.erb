@@ -29,10 +29,10 @@
           <tbody>
             <% @user.runs.each do |run| %>
               <tr>
-                <td><%= run.convert_date_abbr %> <%= run.convert_time %></td>
+                <td class="center"><%= run.convert_date_abbr %></td>
                 <td><%= run.title %></td>
                 <td><%= run.location %></td>
-                <td><%= run.miles %></td>
+                <td class="center"><%= run.miles %></td>
                 <td class="italic"><%= link_to edit_run_path(run) do %><i class="fa fa-pencil-square-o" aria-hidden="true"></i><% end %>|<%= button_to run_path(run), method: :delete do %><i class="fa fa-trash-o" aria-hidden="true"></i><% end %></td>
               </tr>
             <% end %>
