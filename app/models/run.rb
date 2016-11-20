@@ -18,7 +18,7 @@ class Run < ApplicationRecord
   end
 
   def convert_date_abbr
-    self.date.strftime('%a, %b')
+    self.date.strftime('%b %d')
   end
 
   def convert_date

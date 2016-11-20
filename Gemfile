@@ -36,6 +36,7 @@ gem 'chosen-rails'
 gem 'hover-rails'
 gem 'jquery-ui-rails'
 gem 'simple_calendar'
+gem 'mechanize'
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
