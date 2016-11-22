@@ -20,6 +20,10 @@ class Event < ApplicationRecord
     self.start_time.year == DateTime.now.year
   end
 
+  def future?
+    self.start_time >= DateTime.now
+  end 
+
   def month
     self.start_time.month
   end

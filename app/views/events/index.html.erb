@@ -3,12 +3,12 @@
 <div class="container">
 <h1><%=DateTime.now.strftime("%B %Y")%></h1>
   <% @events.each do |event| %>
-    <% if event.current_month? && event.current_year? %>
+    <% if event.current_month? && event.current_year? && event.future? %>
       <%= event.convert_start_time_to_date %> @
       <%= event.convert_start_time_to_time %><br>
       <%= event.name %><br>
       <%= event.location %><br>
-      <%= button_to event_users_events_path(event) do %><i class="fa fa-calendar-plus-o" aria-hidden="true"></i><% end %><br><br>
+      <%= button_to event_users_events_path(event), class: "clear" do %><i class="fa fa-calendar-plus-o" aria-hidden="true"></i><% end %><br><br>
     <% end %>
   <% end %>
 </div>

@@ -37,6 +37,9 @@ gem 'hover-rails'
 gem 'jquery-ui-rails'
 gem 'simple_calendar'
 gem 'mechanize'
+gem 'capybara'
+gem 'rspec-rails'
+gem 'selenium-webdriver'
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
