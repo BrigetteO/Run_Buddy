@@ -1,3 +1,5 @@
+require 'faker'
+
 Dir.chdir(File.dirname(__FILE__))
 
 event_data = Nokogiri::HTML.parse(open("https://www.raceplace.com/city/san-diego-ca/running/"))
