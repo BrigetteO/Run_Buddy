@@ -32,7 +32,7 @@ gem 'hover-rails'
 gem 'simple_calendar'
 gem 'capybara'
 gem 'rspec-rails'
-gem 'faker', group: :production
+gem 'faker'
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
