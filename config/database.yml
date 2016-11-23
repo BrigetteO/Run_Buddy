@@ -20,6 +20,6 @@ test:
   <<: *default
   database: Run_Buddy_test
 
-# production:
-#   <<: *default
-#   database: db/Run_Buddy_production
+production:
+  <<: *default
+  database: Run_Buddy_production
