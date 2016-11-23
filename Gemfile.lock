@@ -234,7 +234,7 @@ DEPENDENCIES
   chosen-rails
   coffee-rails (~> 4.2)
   devise
-  faker
+  faker (~> 1.6.6)
   hover-rails
   jbuilder (~> 2.5)
   jquery-rails
