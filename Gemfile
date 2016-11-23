@@ -40,6 +40,7 @@ gem 'mechanize'
 gem 'capybara'
 gem 'rspec-rails'
 gem 'selenium-webdriver'
+gem 'pg'
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
